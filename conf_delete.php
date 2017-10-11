@@ -13,7 +13,7 @@ $FG_DEBUG = 0;
 
 // The variable FG_TABLE_NAME define the table name to use
 $FG_TABLE_NAME=DB_TABLESCHED;
-$CDR_TABLE_NAMEMDB_TABLECDR;
+$CDR_TABLE_NAME=DB_TABLECDR;
 
 // The variable Var_col would define the col that we want show in your table
 // First Name of the column in the html page, second name of the field
