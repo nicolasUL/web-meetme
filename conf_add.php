@@ -259,9 +259,8 @@ if (isset($add)){
 		{
 			if(strlen(trim($email[$j])))
 			{
-				$query = "SELECT id FROM user WHERE email =? ";
-				$data = array($email[$j]);
-				$result = $db->query($query, $data);
+				$query = "SELECT id FROM user WHERE email ='$email[$j]'";
+				$result = $db->query($query);
 				if($result->numRows())
 				{
 					$row = $result->fetchRow(MDB2_FETCHMODE_ASSOC);
@@ -272,15 +271,13 @@ if (isset($add)){
 					$phone[$j] = addslashes($phone[$j]);
 					$query = "INSERT INTO user (first_name, last_name, email, telephone) VALUES ('$fname[$j]','$lname[$j]','$email[$j]','$phone[$j]')";
 					$result = $db->query($query);
-					$query = "SELECT id FROM user WHERE email =? ";
-					$data = array($email[$j]);
-					$result = $db->query($query, $data);
+					$query = "SELECT id FROM user WHERE email ='$email[$j]'";
+					$result = $db->query($query);
 					$row = $result->fetchRow(MDB2_FETCHMODE_ASSOC);
 					$puid = $row['id'];
 				}
-				$query = "SELECT user_id FROM participants WHERE user_id =? AND book_id =?";
-				$data = array($puid, $bookId);
-				$result = $db->query($query, $data);
+				$query = "SELECT user_id FROM participants WHERE user_id =i'$puid' AND book_id ='$bookId'";
+				$result = $db->query($query);
 				if(!$result->numRows())
 				{
 					$query = "INSERT INTO participants (user_id, book_id) VALUES ('$puid', '$bookId')";
@@ -303,9 +300,8 @@ if (isset($update)){
 	$loopCount = 1;
 	$em_bookId[0] = $bookId;
 
-        $query = "SELECT confno,starttime,dateReq FROM booking WHERE bookId =?";
-	$data = array($bookId);
-        $result = $db->query($query, $data);
+        $query = "SELECT confno,starttime,dateReq FROM booking WHERE bookId ='$bookId'";
+        $result = $db->query($query);
 	$row = $result->fetchRow(MDB2_FETCHMODE_ASSOC);
 		
 	if ( $confno != $row['confno'] )
@@ -321,9 +317,8 @@ if (isset($update)){
 	$searchTime = $row['starttime'];
 	$dateReq = $row['dateReq'];
 
-	$query = "SELECT bookId,starttime,sequenceNo,recurInterval FROM booking WHERE confno =? AND dateReq =? AND starttime >=? ORDER BY sequenceNo";
-	$data = array($searchconfno, $dateReq, $searchTime);
-	$result = $db->query($query, $data);
+	$query = "SELECT bookId,starttime,sequenceNo,recurInterval FROM booking WHERE confno ='$searchconfno' AND dateReq ='$dateReq' AND starttime >='$searchTime' ORDER BY sequenceNo";
+	$result = $db->query($query);
 	$i=0;
 	while ( $row = $result->fetchRow(MDB2_FETCHMODE_ASSOC))
 	{
@@ -470,17 +465,15 @@ if (isset($update)){
 			$invitees = count($email);
 			if($invitees > 0)
 			{
-				$query = "DELETE FROM participants WHERE book_id =?";
-				$data = array($bookId);
-				$result = $db->query($query, $data);
+				$query = "DELETE FROM participants WHERE book_id ='$bookId'";
+				$result = $db->query($query);
 			}
 			for($j=0;$j < $invitees; $j++)
 			{
 				if(strlen(trim($email[$j])))
 				{
-					$query = "SELECT id FROM user WHERE email =?";
-					$data = array($email[$j]);
-					$result = $db->query($query, $data);
+					$query = "SELECT id FROM user WHERE email ='$email[$j]'";
+					$result = $db->query($query);
 					if($result->numRows())
 					{
 						$row = $result->fetchRow(MDB2_FETCHMODE_ASSOC);
@@ -491,15 +484,13 @@ if (isset($update)){
 						$phone[$j] = addslashes($phone[$j]);
 						$query = "INSERT INTO user (first_name, last_name, email, telephone) VALUES ('$fname[$j]','$lname[$j]','$email[$j]','$phone[$j]')";
 						$result = $db->query($query);
-						$query = "SELECT id FROM user WHERE email =?";
-						$data = array($email[$j]);
-						$result = $db->query($query, $data);
+						$query = "SELECT id FROM user WHERE email ='$email[$j]'";
+						$result = $db->query($query);
 						$row = $result->fetchRow(MDB2_FETCHMODE_ASSOC);
 						$puid = $row['id'];
 					}
-                               		$query = "SELECT user_id FROM participants WHERE user_id =? AND book_id =?";
-					$data = array($puid, $bookId);
-                               		$result = $db->query($query, $data);
+                               		$query = "SELECT user_id FROM participants WHERE user_id ='$puid' AND book_id ='$bookId'";
+                               		$result = $db->query($query);
                                		if(!$result->numRows())
                                		{
                                        		$query = "INSERT INTO participants (user_id, book_id) VALUES ('$puid', '$bookId')";

@@ -34,9 +34,8 @@ if (isset($confno)){
 		if (FORCE_END == "YES"){
 			$now_datetime = getConfDate();
                 	$FG_TABLE_NAME = DB_TABLESCHED;
-			$query = "UPDATE $FG_TABLE_NAME SET endtime=? WHERE confno=?";
-			$data = array($now_datetime, $confno);
-			$db->query($query, $data); 
+			$query = "UPDATE $FG_TABLE_NAME SET endtime='$now_datetime' WHERE confno='$confno'";
+			$db->query($query); 
 		}
 		sleep(1);		
 	}

@@ -70,9 +70,8 @@ if ($add){
 
 			if (!intval($conflict)){
 //      	        	  $userPass = md5($userPass);
-				$data = array(NULL,$userEmail,$userPass,$fname,$lname,$phone,$userAdmin);
-				$query = "INSERT INTO $FG_TABLE_NAME VALUES (?,?,?,?,?,?,?)";
-				$result = $db->query($query, $data);
+				$query = "INSERT INTO $FG_TABLE_NAME VALUES ('NULL','$userEmail','$userPass','$fname','$lname','$phone','$userAdmin')";
+				$result = $db->query($query);
 			}
 		} else {
 			$Error = "You have entered an invalid email address";
@@ -95,9 +94,8 @@ if (($update)){
 	            		$userPass = "$userPass";
         		}
 	        	if (intval($conflict) == 1){
-        			$data = array($userEmail,$userAdmin,$fname,$lname,$phone,$userPass);
-				$query = "UPDATE $FG_TABLE_NAME SET email=? ,admin=? ,first_name=? ,last_name=? ,telephone=? ,password=? WHERE $FG_EDITION_CLAUSE";
-				$result = $db->query($query, $data);
+				$query = "UPDATE $FG_TABLE_NAME SET email='$userEmail' ,admin='$userAdmin' ,first_name='$fname' ,last_name='$lname' ,telephone='$phone' ,password='$userPass' WHERE $FG_EDITION_CLAUSE";
+				$result = $db->query($query);
 				$conflict=0;
 			}
 		} else {
@@ -108,9 +106,8 @@ if (($update)){
 
 if ($remove){
 	if ($_SESSION['privilege'] == 'Admin') {
-		$query = "DELETE FROM $FG_TABLE_NAME WHERE id=?";
-		$data = array($uuid);
-		$result = $db->query($query, $data);
+		$query = "DELETE FROM $FG_TABLE_NAME WHERE id='$uuid'";
+		$result = $db->query($query);
 	}
 }
 /*    *    *   *   *  * * * *********************************************************/

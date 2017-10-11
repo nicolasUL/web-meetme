@@ -67,16 +67,15 @@ if (isset($DeleteNow)){
 	foreach ($DeletebyId as $i){
         	$FG_EDITION_CLAUSE=" bookId='$i' ";
 		// Delete the Conference
-		$query = "DELETE FROM $FG_TABLE_NAME WHERE bookId =?";
-		$data = array($i);
-		$result = $db->query($query, $data);
+		$query = "DELETE FROM $FG_TABLE_NAME WHERE bookId ='$i'";
+		$result = $db->query($query);
 		//Delete the CDR records for this conference
-		$query = "DELETE FROM $CDR_TABLE_NAME WHERE bookId =?";
-		$result = $db->query($query, $data);
+		$query = "DELETE FROM $CDR_TABLE_NAME WHERE bookId ='$i'";
+		$result = $db->query($query);
 		// Delete the email entries
 		if (defined('AUTH_TYPE') && (AUTH_TYPE == 'sqldb')){
-			$query = "DELETE FROM participants WHERE book_id =?";
-			$result = $db->query($query, $data);
+			$query = "DELETE FROM participants WHERE book_id ='$i'";
+			$result = $db->query($query);
 		}
 	}
 }

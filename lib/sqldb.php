@@ -7,8 +7,8 @@ function authsql ($user, $password)
 
 	$xuser = strtolower($user);
 	$data = array( $xuser, $password);
-	$query = "SELECT id, admin FROM user WHERE email=? AND password=?";
-	$result = $db->query($query, $data);
+	$query = "SELECT id, admin FROM user WHERE email='$xuser' AND password='$password'";
+        $result = $db->query($query);
 	if($result->numRows())
 	{
 		$row = $result->fetchRow(MDB2_FETCHMODE_ASSOC);
