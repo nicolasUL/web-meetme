@@ -1,6 +1,6 @@
 <?php
 
-include("../locale.php");
+include("./locale.php");
 
 //To debug uncomment the following
 //ini_set('display_errors', TRUE);
