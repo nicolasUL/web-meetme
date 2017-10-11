@@ -276,7 +276,7 @@ if (isset($add)){
 					$row = $result->fetchRow(MDB2_FETCHMODE_ASSOC);
 					$puid = $row['id'];
 				}
-				$query = "SELECT user_id FROM participants WHERE user_id =i'$puid' AND book_id ='$bookId'";
+				$query = "SELECT user_id FROM participants WHERE user_id ='$puid' AND book_id ='$bookId'";
 				$result = $db->query($query);
 				if(!$result->numRows())
 				{
