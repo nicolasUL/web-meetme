@@ -105,7 +105,7 @@ if (defined ('AUTH_TYPE'))
         }
 }
 
-	$nb_record = $db->getOne("SELECT COUNT(*) FROM $FG_TABLE_NAME WHERE $FG_CLAUSE");
+	$nb_record = $db->queryOne("SELECT COUNT(*) FROM $FG_TABLE_NAME WHERE $FG_CLAUSE");
 	$record_start = intval($current_page*$FG_LIMITE_DISPLAY);
 
 	$query = "SELECT $FG_QUERY FROM $FG_TABLE_NAME WHERE $FG_CLAUSE ORDER BY $order $sens LIMIT $FG_LIMITE_DISPLAY OFFSET $record_start";
@@ -286,7 +286,7 @@ if ($FG_DEBUG == 3) echo "<br>Sense clause : $sens";
 								 
 				<?php }} elseif (($i == 4) && ($view == "Past")) { 
 					$CDR_TABLE_CLAUSE = "bookId='$recordset[5]'";
-                                        $cdr_count = $db->getOne("SELECT COUNT(*) FROM $CDR_TABLE_NAME WHERE $CDR_TABLE_CLAUSE");?>
+                                        $cdr_count = $db->queryOne("SELECT COUNT(*) FROM $CDR_TABLE_NAME WHERE $CDR_TABLE_CLAUSE");?>
 
                                  <TD width="<?php echo $FG_TABLE_COL[$i][2]; ?>" vAlign=middle align="<?php echo $FG_TABLE_COL[$i][3]; ?>" class=tableBody><?php echo $cdr_count ?>/<?php echo stripslashes($record_display); ?></TD>
 

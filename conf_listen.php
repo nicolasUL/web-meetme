@@ -66,7 +66,7 @@ $now=getConfDate($today);
 
 	$FG_CLAUSE = "endtime<='$now' AND confno = '$confno' AND (pin = '$pin' or adminpin = '$pin') AND adminopts LIKE '%r%'";
 
-	$nb_record = $db->getOne("SELECT COUNT(*) FROM $FG_TABLE_NAME WHERE $FG_CLAUSE");
+	$nb_record = $db->queryOne("SELECT COUNT(*) FROM $FG_TABLE_NAME WHERE $FG_CLAUSE");
 
 	$record_start = intval($current_page*$FG_LIMITE_DISPLAY);
 

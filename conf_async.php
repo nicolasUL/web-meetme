@@ -77,7 +77,7 @@ if (isset($confno)){
 
                 $FG_TABLE_NAME = DB_TABLESCHED;
                 $FG_COL_QUERY='confno';
-		if (!($db->getOne("SELECT COUNT(*) FROM $FG_TABLE_NAME WHERE $FG_TABLE_CLAUSE"))) {
+		if (!($db->queryOne("SELECT COUNT(*) FROM $FG_TABLE_NAME WHERE $FG_TABLE_CLAUSE"))) {
                         $FG_ERROR = _("You are not the owner of this conference or the conference does not exist")."!";
                         $showConference = 0;
                 }

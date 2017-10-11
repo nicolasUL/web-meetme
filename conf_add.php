@@ -169,8 +169,8 @@ if (isset($add)){
 	if(defined('MAX_CALLER_LIMT')) {
 		$FG_TABLE_CLAUSE="((starttime<='$starttime' AND endtime>='$starttime') OR (starttime<='$starttime' AND endtime>='$endtime') OR (starttime>='$starttime' AND endtime<='$endtime') OR (starttime<='$endtime' AND endtime>='$endtime'))";
 
-		$prev_seats = $db->getOne("SELECT maxUser FROM $FG_TABLE_NAME WHERE confno='$confno' AND bookid='$bookid'");
-		$used_seats = $db->getOne("SELECT SUM(maxUser) FROM $FG_TABLE_NAME WHERE $FG_TABLE_CLAUSE");
+		$prev_seats = $db->queryOne("SELECT maxUser FROM $FG_TABLE_NAME WHERE confno='$confno' AND bookid='$bookid'");
+		$used_seats = $db->queryOne("SELECT SUM(maxUser) FROM $FG_TABLE_NAME WHERE $FG_TABLE_CLAUSE");
 
 		if( (intval($maxUser) + intval($used_seats) - intval($prev_seats)) > MAX_CALLER_LIMT)
 			$error = "The requested number of participents, ". $maxUser .", would exceed the system limit of: " . MAX_CALLER_LIMT . " , for this time period. <br>" . (intval(MAX_CALLER_LIMT) - $used_seats) . " seats are available.";
@@ -193,7 +193,7 @@ if (isset($add)){
 	   $stemp = (strtotime($starttime));
 	   $etemp = (strtotime($endtime));
 	   for ($i=0; $i < intval($recurPrd); $i++){
-		$ctemp = $db->getOne("SELECT COUNT(*) FROM $FG_TABLE_NAME WHERE $FG_TABLE_CLAUSE");
+		$ctemp = $db->queryOne("SELECT COUNT(*) FROM $FG_TABLE_NAME WHERE $FG_TABLE_CLAUSE");
 		$conflict += (intval($ctemp));
 		$stemp += $recurInt;
 		$etemp += $recurInt;
@@ -202,7 +202,7 @@ if (isset($add)){
 
 	   }
 	} else {
-	    $ctemp = $db->getOne("SELECT COUNT(*) FROM $FG_TABLE_NAME WHERE $FG_TABLE_CLAUSE");
+	    $ctemp = $db->queryOne("SELECT COUNT(*) FROM $FG_TABLE_NAME WHERE $FG_TABLE_CLAUSE");
 	    $conflict = (intval($ctemp));
 	    $recurPrd = 1;
 	}
@@ -424,7 +424,7 @@ if (isset($update)){
            $stemp = (strtotime($starttime));
            $etemp = (strtotime($endtime));
            for ($i=0; $i < $loopCount; $i++){
-		$ctemp = $db->getOne("SELECT COUNT(*) FROM $FG_TABLE_NAME WHERE $FG_TABLE_CLAUSE");
+		$ctemp = $db->queryOne("SELECT COUNT(*) FROM $FG_TABLE_NAME WHERE $FG_TABLE_CLAUSE");
                 $conflict += (intval($ctemp));
                 $stemp = strtotime($starttime)+($em_sqNo[$i]*$recurInt);
                 $etemp = strtotime($endtime)+($em_sqNo[$i]*$recurInt);
@@ -438,7 +438,7 @@ if (isset($update)){
 	}
 	else
 	{
-           $conflict = $db->getOne("SELECT COUNT(*) FROM $FG_TABLE_NAME WHERE $FG_TABLE_CLAUSE");
+           $conflict = $db->queryOne("SELECT COUNT(*) FROM $FG_TABLE_NAME WHERE $FG_TABLE_CLAUSE");
 	   $loopCount = 1;
 	}
 

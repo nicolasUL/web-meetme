@@ -113,7 +113,7 @@ if (defined('AUTH_TYPE') && ($_SESSION['privilege'] != "Admin")) {
 	if (!isset($current_page))
 		$current_page=0;
 
- 	$nb_record = $db->getOne("SELECT COUNT(*) FROM $FG_TABLE_NAME $FG_CLAUSE");
+ 	$nb_record = $db->queryOne("SELECT COUNT(*) FROM $FG_TABLE_NAME $FG_CLAUSE");
 
 	$record_start = intval($current_page*$FG_LIMITE_DISPLAY);
 

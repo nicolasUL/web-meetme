@@ -66,7 +66,7 @@ if ($add){
 	if ($_SESSION['privilege'] == 'Admin') {
 		if (checkEmail($userEmail)) {
 			$FG_TABLE_CLAUSE="email='$userEmail'";
-        		$conflict = $db->getOne("SELECT COUNT(*) FROM $FG_TABLE_NAME WHERE $FG_TABLE_CLAUSE");
+        		$conflict = $db->queryOne("SELECT COUNT(*) FROM $FG_TABLE_NAME WHERE $FG_TABLE_CLAUSE");
 
 			if (!intval($conflict)){
 //      	        	  $userPass = md5($userPass);
@@ -87,7 +87,7 @@ if (($update)){
 
 			$FG_TABLE_CLAUSE="id='$uuid'";
 
-	  	      $conflict = $db->getOne("SELECT COUNT(*) FROM $FG_TABLE_NAME WHERE $FG_EDITION_CLAUSE");
+	  	      $conflict = $db->queryOne("SELECT COUNT(*) FROM $FG_TABLE_NAME WHERE $FG_EDITION_CLAUSE");
 
         		if($userPass)
         		{
