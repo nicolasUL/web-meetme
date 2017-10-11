@@ -530,7 +530,7 @@ $tmp=intval(date("Y", $starttime));
 		$query = "SELECT u.first_name, u.last_name, u.email, u.telephone FROM user u, participants p
 				WHERE u.id = p.user_id AND p.book_id = '$bookId'";
 		$result=$db->query($query);
-		while($row = $result->fetchRow(DB_FETCHMODE_ASSOC))
+		while($row = $result->fetchRow(MDB2_FETCHMODE_ASSOC))
 		{
 		        extract($row);
 			echo "<tr>";

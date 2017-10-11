@@ -6,7 +6,7 @@
 
 	$query = "SELECT confDesc, confOwner, confno, pin, adminpin, starttime, endtime, b.adminopts, maxUser, u.first_name AS ofn, u.last_name AS oln, u.email AS oem FROM booking b, user u WHERE bookid = '$bookId' AND b.clientId = u.id";
 	$result=$db->query($query);
-       	$row = $result->fetchRow(DB_FETCHMODE_ASSOC);
+       	$row = $result->fetchRow(MDB2_FETCHMODE_ASSOC);
 	extract($row);
 	$starttime = strtotime($starttime);
 	$endtime = strtotime($endtime);
@@ -45,7 +45,7 @@
 	$query = "SELECT u.first_name, u.last_name, u.email, u.telephone FROM user u, participants p
 		WHERE u.id = p.user_id AND p.book_id = '$bookId'";
 	$result=$db->query($query);
-       	while($row = $result->fetchRow(DB_FETCHMODE_ASSOC))
+       	while($row = $result->fetchRow(MDB2_FETCHMODE_ASSOC))
        	{
 		extract($row);
 		$recipient = "\"$first_name $last_name\" <$email>";

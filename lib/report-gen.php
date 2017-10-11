@@ -32,7 +32,7 @@ for ($t=0; $t < 24; $t++){
 	while ($rows->fetchInto($result)){
 		$query = "Select (SUM(duration)/60) AS uMins FROM ".DB_TABLECDR." WHERE bookId = '$result[0]'";
 		$utemp = $db->query($query);
-		$utemp2 = $utemp->fetchRow(DB_FETCHMODE_ASSOC);
+		$utemp2 = $utemp->fetchRow(MDB2_FETCHMODE_ASSOC);
 		if ($utemp2['uMins'])
 			$used_count[$t]++;
 		$used_min = $used_min + $utemp2['uMins'];

@@ -38,7 +38,7 @@ include ("./lib/leftnav.php");
 $query = "SELECT u.first_name, u.last_name, u.email, u.telephone, u.admin, u.password FROM user u WHERE u.id =?";
 $data = array($uuid);
 $result=$db->query($query, $data);
-$row = $result->fetchRow(DB_FETCHMODE_ASSOC);
+$row = $result->fetchRow(MDB2_FETCHMODE_ASSOC);
 
 if (is_array($row))
 	extract($row);

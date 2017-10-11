@@ -11,7 +11,7 @@ function authsql ($user, $password)
 	$result = $db->query($query, $data);
 	if($result->numRows())
 	{
-		$row = $result->fetchRow(DB_FETCHMODE_ASSOC);
+		$row = $result->fetchRow(MDB2_FETCHMODE_ASSOC);
 		$_SESSION['privilege'] = $row['admin'];
 	        return $row['id'];
 	}

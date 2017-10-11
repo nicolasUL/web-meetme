@@ -51,7 +51,7 @@ function wmm_cdr($ecode, $data, $server, $port) {
 
 	//Reconnect to DB
 	$db->disconnect();
-	$db = DB::connect($dsn);
+	$db = MDB2::connect($dsn);
 
 	$TEMP_CLAUSE="starttime<='$now' AND endtime>='$now' AND confno='$data[Meetme]'";
 	$bookId = $db->getOne("SELECT $CT_QUERY FROM $CHECK_TABLE WHERE $TEMP_CLAUSE");

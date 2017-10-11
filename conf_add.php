@@ -241,7 +241,7 @@ if (isset($add)){
 		$endtime= date("Y-m-d ", $etemp) . $endHour;
 		$query = "SELECT max(bookId) AS mbid FROM booking";
 		$result = $db->query($query);
-		$row = $result->fetchRow(DB_FETCHMODE_ASSOC);
+		$row = $result->fetchRow(MDB2_FETCHMODE_ASSOC);
 		$bookId = $row['mbid'];
 
 		if (strchr($opts, "r") || strchr($adminopts, "r")) {
@@ -264,7 +264,7 @@ if (isset($add)){
 				$result = $db->query($query, $data);
 				if($result->numRows())
 				{
-					$row = $result->fetchRow(DB_FETCHMODE_ASSOC);
+					$row = $result->fetchRow(MDB2_FETCHMODE_ASSOC);
 					$puid = $row['id'];
 				}
 				else
@@ -275,7 +275,7 @@ if (isset($add)){
 					$query = "SELECT id FROM user WHERE email =? ";
 					$data = array($email[$j]);
 					$result = $db->query($query, $data);
-					$row = $result->fetchRow(DB_FETCHMODE_ASSOC);
+					$row = $result->fetchRow(MDB2_FETCHMODE_ASSOC);
 					$puid = $row['id'];
 				}
 				$query = "SELECT user_id FROM participants WHERE user_id =? AND book_id =?";
@@ -306,7 +306,7 @@ if (isset($update)){
         $query = "SELECT confno,starttime,dateReq FROM booking WHERE bookId =?";
 	$data = array($bookId);
         $result = $db->query($query, $data);
-	$row = $result->fetchRow(DB_FETCHMODE_ASSOC);
+	$row = $result->fetchRow(MDB2_FETCHMODE_ASSOC);
 		
 	if ( $confno != $row['confno'] )
 	{
@@ -325,7 +325,7 @@ if (isset($update)){
 	$data = array($searchconfno, $dateReq, $searchTime);
 	$result = $db->query($query, $data);
 	$i=0;
-	while ( $row = $result->fetchRow(DB_FETCHMODE_ASSOC))
+	while ( $row = $result->fetchRow(MDB2_FETCHMODE_ASSOC))
 	{
 		$em_bookId[$i] = $row['bookId'];
 		$em_sT[$i] = $row['starttime'];
@@ -483,7 +483,7 @@ if (isset($update)){
 					$result = $db->query($query, $data);
 					if($result->numRows())
 					{
-						$row = $result->fetchRow(DB_FETCHMODE_ASSOC);
+						$row = $result->fetchRow(MDB2_FETCHMODE_ASSOC);
 						$puid = $row['id'];
 					}
 					else
@@ -494,7 +494,7 @@ if (isset($update)){
 						$query = "SELECT id FROM user WHERE email =?";
 						$data = array($email[$j]);
 						$result = $db->query($query, $data);
-						$row = $result->fetchRow(DB_FETCHMODE_ASSOC);
+						$row = $result->fetchRow(MDB2_FETCHMODE_ASSOC);
 						$puid = $row['id'];
 					}
                                		$query = "SELECT user_id FROM participants WHERE user_id =? AND book_id =?";
@@ -524,7 +524,7 @@ if (isset($Extend)){
 	$query = "SELECT $FG_COL_QUERY FROM $FG_TABLE_NAME WHERE $FG_TABLE_CLAUSE";
 	$result = $db->query($query);
 
-	$recordset = $result->fetchRow(DB_FETCHMODE_ASSOC);
+	$recordset = $result->fetchRow(MDB2_FETCHMODE_ASSOC);
 	$bookId=$recordset[bookId];
 	$endtime=$recordset[endtime];
 
