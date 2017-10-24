@@ -1,6 +1,6 @@
 <?php
 
-include ("./locale.php");
+include(FSROOT."locale.php");
 
 //Email text
 function email_body($confDesc, $confOwner, $confno, $pin, $starttime, $endtime, $maxUser, $recurPrd, $encode)
