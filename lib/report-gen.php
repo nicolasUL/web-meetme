@@ -29,7 +29,7 @@ for ($t=0; $t < 24; $t++){
 	$count[$t] = $rows->numRows();
 	$total = $total +  $count[$t];
 
-	while ($rows->fetchInto($result)){
+	while ($rows->fetchRow()){
 		$query = "Select (SUM(duration)/60) AS uMins FROM ".DB_TABLECDR." WHERE bookId = '$result[0]'";
 		$utemp = $db->query($query);
 		$utemp2 = $utemp->fetchRow(MDB2_FETCHMODE_ASSOC);
