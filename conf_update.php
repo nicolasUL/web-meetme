@@ -250,7 +250,8 @@ if ($FG_DEBUG == 3) echo "<br>Sense clause : $sens";
 				if($i == 2 || $i ==3)
 				{
 					$tmpTime=strtotime($recordset[$i]);
-					$record_display = date("m/d/y g:ia", $tmpTime);
+					if($locale == "fr_FR") $record_display = date("d/m/Y H:i", $tmpTime);
+					else $record_display = date("m/d/y g:ia", $tmpTime);
 				}
 				if ($i == 0)
 				{ 

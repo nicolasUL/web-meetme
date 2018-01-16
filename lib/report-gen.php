@@ -2,6 +2,7 @@
 include ("./defines.php");
 include ("./database.php");
 include ("./functions.php");
+include(FSROOT."locale.php");
 
 getpost_ifset('now');
 $total=0;
@@ -65,10 +66,10 @@ imageline($im, 10, 0, 10, ($im_height-14), $black);
 imageline($im, 10, 0, 10, ($im_height-14), $black);
 imageline($im, 0, $im_height, 10, ($im_height-14), $black);
 
-imagestring($im, 4, 5, ($im_height+10), "Key:", $black);
-imagestring($im, 4, 5, ($im_height+25), "    Conferences Scheduled", $blue);
-imagestring($im, 4, 5, ($im_height+40), "    Conferences used", $lightblue);
-imagestring($im, 4, 5, ($im_height+70), "Minutes Used: $used_min", $black);
+imagestring($im, 4, 5, ($im_height+10), _("Key:"), $black);
+imagestring($im, 4, 5, ($im_height+25), _("    Conferences Scheduled"), $blue);
+imagestring($im, 4, 5, ($im_height+40), _("    Conferences used"), $lightblue);
+imagestring($im, 4, 5, ($im_height+70), _("Minutes Used: ")."$used_min", $black);
 if ($max > 0){
 	$vscale=(($im_height-20)/$max);
 	for ($i=0; $i < $max; $i++){
@@ -90,7 +91,7 @@ if ($max > 0){
         	$hpos += 24;
 	}
 } else {
-	imagestring($im, 10, ($im_width/3), ($im_height/2), "No Conferences Scheduled ", $red);
+	imagestring($im, 10, ($im_width/3), ($im_height/2), _("No Conferences Scheduled"), $red);
 }
 imagepng($im);
 imagedestroy($im);

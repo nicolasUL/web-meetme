@@ -61,7 +61,7 @@ print <<<HEADER
 <html>
         <head>
                 <title>$gui_title control</title>
-                <meta http-equiv="Content-Type" content="text/html">
+                <meta http-equiv="Content-Type" content="text/html; charset="utf-8">
                 <style type="text/css" media="screen">
                         @import url("css/layout.css");
                         @import url("css/content.css");

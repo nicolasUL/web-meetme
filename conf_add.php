@@ -612,14 +612,14 @@ function ClientMailer()
 		<?php if ($add)
 		{ ?>
 			parent.WMAdd._add.onclick = "";
-			parent.WMAdd._add.value = "Continue";
+			parent.WMAdd._add.value = "<?php echo _("Continue"); ?>";
 			parent.WMAdd.action = "./meetme_control.php?&s=2&t=3";
 		<?php 
 		}
 		else
 		{ ?>
 			parent.WMAdd._add.onclick = "";
-			parent.WMAdd._update.value = "Continue";
+			parent.WMAdd._update.value = "<?php echo _("Continue"); ?>";
 			parent.WMAdd.action = "./meetme_control.php?&s=2&t=4";
 		<?php
 		}

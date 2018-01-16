@@ -132,7 +132,7 @@ getpost_ifset('confno'); ?>
 	<FORM METHOD=POST ACTION="conf_add.php?s=1&t=0&order=<?php echo "$order&sens=$sens&current_page=$current_page&PHPSESSID=$PHPSESSID&Extend&confno=$confno"; ?>" target="superframe">
 	<input type="Submit" name="Extend" align="top" border="0" value="<?php print _("Extend")?>" /> <td><td>
 	</FORM>
-	<button type="button" name="EndNow" onClick="javascript:conf_action('end','<?PHP echo $confno; ?>','')" align="top" border="0">End now</button>
+	<button type="button" name="EndNow" onClick="javascript:conf_action('end','<?PHP echo $confno; ?>','')" align="top" border="0"><?php print _("End now") ?></button>
 	<td>
 	<button type="button" name="Invite" onClick="out_call(<?php echo $confno; ?>)" align="top" border="0"><?php print _("Invite") ?></button>
                </table>
@@ -263,7 +263,7 @@ else
 		<tr>
 		<td align="left" bgcolor="#000033" width="20%">                     
 				<font face="arial" size="1" color="#ffffff"><b>&nbsp;&nbsp;
-				<SPAN title=" Conference Description " class="popup"><?php print _("Conference Name")." :"; ?></SPAN></b></font>
+				<SPAN title=" <?php print _("Conference Description"); ?> " class="popup"><?php print _("Conference Name")." :"; ?></SPAN></b></font>
 			</td>
 			<td class="bar-search" align="left" bgcolor="#acbdee">
 			<table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td>&nbsp;&nbsp;<INPUT TYPE="text" NAME="confDesc" value="<?php if (isset ($confDesc)) echo $confDesc; ?>" size=35></td>
@@ -281,14 +281,14 @@ else
 			</tr></table></td>
 		</tr>
 		<td align="left" bgcolor="#000033">                     
-				<font face="arial" size="1" color="#ffffff"><b>&nbsp;&nbsp;<SPAN title=" Conference Room  Number " class="popup"><?php print _("Conference Number"); ?> :</SPAN></b></font>
+				<font face="arial" size="1" color="#ffffff"><b>&nbsp;&nbsp;<SPAN title=" <?php print _("Conference Room  Number"); ?> " class="popup"><?php print _("Conference Number"); ?> :</SPAN></b></font>
 			</td>
 			<td class="bar-search" align="left" bgcolor="#acbdee">
 			<table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td>&nbsp;&nbsp;<INPUT TYPE="text" NAME="confno" value="<?php echo $confno; ?>"></td>
 			</tr></table></td>
 		</tr>
 		<td align="left" bgcolor="#000033">
-				<font face="arial" size="1" color="#ffffff"><b>&nbsp;&nbsp;<SPAN title=" Numeric password for the Moderator " class="popup"><?php print _("Moderator PIN"); ?> :</SPAN></b></font>
+				<font face="arial" size="1" color="#ffffff"><b>&nbsp;&nbsp;<SPAN title=" <?php print _("Numeric password for the Moderator"); ?> " class="popup"><?php print _("Moderator PIN"); ?> :</SPAN></b></font>
 			</td>
 			<td class="bar-search" align="left" bgcolor="#acbdee">
 			<table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td>&nbsp;&nbsp;<INPUT TYPE="text" NAME="adminpin" value="<?php if (isset($adminpin)) echo $adminpin; ?>"></td>
@@ -296,7 +296,7 @@ else
 		</tr>
 
 		<td align="left" bgcolor="#000033">
-				<font face="arial" size="1" color="#ffffff"><b>&nbsp;&nbsp;<SPAN title=" Options that apply only to Moderators " class="popup"><?php print _("Moderator Options"); ?> :</SPAN></b></font>
+				<font face="arial" size="1" color="#ffffff"><b>&nbsp;&nbsp;<SPAN title=" <?php print _("Options that apply only to Moderators"); ?>" class="popup"><?php print _("Moderator Options"); ?> :</SPAN></b></font>
 			</td>
 			<td class="bar-search" align="left" bgcolor="#acbdee">
 			<table width="65%" border="0" cellspacing="0" cellpadding="0"><tr>
@@ -340,7 +340,7 @@ else
 		</tr>
 
 		<td align="left" bgcolor="#000033">                     
-				<font face="arial" size="1" color="#ffffff"><b>&nbsp;&nbsp;<SPAN title=" Numeric password for normal callers " class="popup"><?php print _("User PIN"); ?> :</SPAN></b></font>
+				<font face="arial" size="1" color="#ffffff"><b>&nbsp;&nbsp;<SPAN title=" <?php print _("Numeric password for normal callers"); ?> " class="popup"><?php print _("User PIN"); ?> :</SPAN></b></font>
 			</td>
 			<td class="bar-search" align="left" bgcolor="#acbdee">
 			<table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td>&nbsp;&nbsp;<INPUT TYPE="text" NAME="pin" value="<?php if (isset($pin)) echo $pin; ?>"></td>
@@ -348,7 +348,7 @@ else
 		</tr>
 
 		<td align="left" bgcolor="#000033">                     
-				<font face="arial" size="1" color="#ffffff"><b>&nbsp;&nbsp;<SPAN title=" Options that apply only to normal callers " class="popup">User Options :</SPAN></b></font>
+				<font face="arial" size="1" color="#ffffff"><b>&nbsp;&nbsp;<SPAN title=" <?php print _("Options that apply only to normal callers"); ?> " class="popup"><?php print _("User Options"); ?> :</SPAN></b></font>
 			</td>
 			<td class="bar-search" align="left" bgcolor="#acbdee">
 			<table width="65%" border="0" cellspacing="0" cellpadding="0"><tr></td>
@@ -395,24 +395,9 @@ else
 } ?>
 			<table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td>&nbsp;&nbsp;
 
-<SELECT NAME="month" onChange="monthPop(this.form,this.form.day.selectedIndex)">
-<?php for ($i=0; $i<12; $i++){
-if ( $i < 9 ){
-	if ( $i+1 == intval(date("n", $starttime)) ){ ?>
-	<OPTION SELECTED VALUE="0<?php echo $i+1; ?>"><?php echo $months[$i]; ?>
-	<?php } else { ?>
-	<OPTION VALUE="0<?php echo $i+1; ?>"><?php echo $months[$i]; ?>
-	<?php } ?>
-<?php } else {
-	if ( $i+1 == intval(date("n", $starttime)) ){ ?>
-	<OPTION SELECTED VALUE="<?php echo $i+1; ?>"><?php echo $months[$i]; ?>
-	<?php } else { ?>
-	<OPTION VALUE="<?php echo $i+1;?>"><?php echo $months[$i]; ?>
-	<?php } ?>
-<?php } ?>
-<?php } ?>
-
-</SELECT>
+<?php
+if ( $locale == "fr_FR" ) {
+?>
 <SELECT NAME="day">
 <?php $tmp=intval(date("n", $starttime));
 for ($i=1; $i<= $days[$tmp-1]; $i++) {
@@ -431,6 +416,49 @@ if ( $i < 9 ){
 <?php  } ?>
 <?php  } ?>
 </SELECT>
+<?php } ?>
+
+<SELECT NAME="month" onChange="monthPop(this.form,this.form.day.selectedIndex)">
+<?php for ($i=0; $i<12; $i++){
+if ( $i < 9 ){
+	if ( $i+1 == intval(date("n", $starttime)) ){ ?>
+	<OPTION SELECTED VALUE="0<?php echo $i+1; ?>"><?php echo $months[$i]; ?>
+	<?php } else { ?>
+	<OPTION VALUE="0<?php echo $i+1; ?>"><?php echo $months[$i]; ?>
+	<?php } ?>
+<?php } else {
+	if ( $i+1 == intval(date("n", $starttime)) ){ ?>
+	<OPTION SELECTED VALUE="<?php echo $i+1; ?>"><?php echo $months[$i]; ?>
+	<?php } else { ?>
+	<OPTION VALUE="<?php echo $i+1;?>"><?php echo $months[$i]; ?>
+	<?php } ?>
+<?php } ?>
+<?php } ?>
+
+</SELECT>
+
+<?php
+if ( $locale != "fr_FR" ) {
+?>
+<SELECT NAME="day">
+<?php $tmp=intval(date("n", $starttime));
+for ($i=1; $i<= $days[$tmp-1]; $i++) {
+if ( $i < 9 ){
+	if ( $i == intval(date("j", $starttime)) ){ ?>
+	<OPTION SELECTED VALUE="0<?php echo $i; ?>"><?php echo $i; ?>
+	<?php } else { ?>
+	<OPTION VALUE="0<?php echo $i; ?>"><?php echo $i; ?>
+	<?php } ?>
+<?php } else {
+	if ( $i == intval(date("j", $starttime)) ){ ?>
+	<OPTION SELECTED VALUE="<?php echo $i; ?>"><?php echo $i; ?>
+	<?php } else { ?>
+	<OPTION VALUE="<?php echo $i; ?>"><?php echo $i; ?>
+	<?php  } ?>
+<?php  } ?>
+<?php  } ?>
+</SELECT>
+<?php } ?>
 
 <SELECT NAME="year" onChange="monthPop(this.form,this.form.month.selectedIndex)">
 <?php  for ($i=0; $i<=3; $i++){
@@ -482,7 +510,7 @@ $tmp=intval(date("Y", $starttime));
 <?php if(!isset($endtime)){ ?>
 		<td align="left" bgcolor="#000033">                     
 				<font face="arial" size="1" color="#ffffff"><b>&nbsp;&nbsp;
-				<SPAN title=" Single or repeating scheduled conferences " class="popup"><?php print _("Recurs"); ?> :</SPAN></b></font>
+				<SPAN title=" <?php print _("Single or repeating scheduled conferences"); ?> " class="popup"><?php print _("Recurs"); ?> :</SPAN></b></font>
 			</td>
 			<td class="bar-search" align="left" bgcolor="#acbdee">
 			<table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td>&nbsp;&nbsp;
@@ -505,7 +533,7 @@ $tmp=intval(date("Y", $starttime));
 <?php } ?>
 
 		<td align="left" bgcolor="#000033">                     
-				<font face="arial" size="1" color="#ffffff"><b>&nbsp;&nbsp;<SPAN title=" How many callers may join " class="popup"><?php print _("Max Participants"); ?> :</SPAN></b></font>
+				<font face="arial" size="1" color="#ffffff"><b>&nbsp;&nbsp;<SPAN title=" <?php print _("How many callers may join"); ?> " class="popup"><?php print _("Max Participants"); ?> :</SPAN></b></font>
 			</td>
 			<td class="bar-search" align="left" bgcolor="#acbdee">
 	<?php if (isset($maxUser)) { ?>
@@ -555,12 +583,12 @@ $tmp=intval(date("Y", $starttime));
 
 			<td class="bar-search" align="center" bgcolor="#cddeff">
 	<?php if ($bookId) { ?>
-				<input type="Submit"  id="_update" name="update" align="top" border="0" value="Update Conference"/>
+				<input type="Submit"  id="_update" name="update" align="top" border="0" value="<?php print _("Update Conference"); ?>"/>
 				<input type="CHECKBOX"  name="updateSeries" align="top" border="0" value="1"/>
 			<font face="arial" size="1" ><b>&nbsp;&nbsp;<?php print _("Update the Series"); ?>: </b></font>
 
 	<?php } else { ?>
-				<input type="Submit" id="_add" name="add" align="top" border="0" value="<?php print _("Add Conference"); ?>" onClick="if(confirm('Are you sure?')) show('add_summary'); else return false" >
+				<input type="Submit" id="_add" name="add" align="top" border="0" value="<?php print _("Add Conference"); ?>" onClick="if(confirm('<?php print _("Are you sure?"); ?>')) show('add_summary'); else return false" >
 	<?php } ?>
 			</td>
 	</tr>

@@ -9,7 +9,6 @@ $locale = 'en_US';
 
 $languages = locale_accept_from_http($_SERVER['HTTP_ACCEPT_LANGUAGE']);
 
-
 //print "Locales = ";
 //print_r($languages);
 //print " <br>";
@@ -27,11 +26,13 @@ $languages = locale_accept_from_http($_SERVER['HTTP_ACCEPT_LANGUAGE']);
 
 }*/
 
+if ( $languages == "fr") $languages = "fr_FR";
+
 
 $trans = './locale/'.$languages.'/LC_MESSAGES/messages.mo';
 
 //print "Looking for locale in $trans <br>";
-if ( ($languages == "en_us") || file_exists($trans)) {
+if ( ($languages == "en_us") || ($languages == "fr_FR") || file_exists($trans)) {
 	$locale = $languages;
 }
 

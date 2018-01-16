@@ -36,7 +36,7 @@ $FG_NB_TABLE_COL=count($FG_TABLE_COL);
 $FG_TOTAL_TABLE_COL = $FG_NB_TABLE_COL;
 
 //This variable define the Title of the HTML table
-$FG_HTML_TABLE_TITLE=" - Users : ";
+$FG_HTML_TABLE_TITLE=" - "._("Users")." : ";
 
 //This variable define the width of the HTML table
 $FG_HTML_TABLE_WIDTH="100%";

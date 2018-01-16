@@ -277,6 +277,13 @@ if ($FG_DEBUG == 3) echo "<br>Nb_record_max : $nb_record_max";
 				  		<?php for($i=0;$i<$FG_NB_TABLE_COL;$i++){ ?>
 						
 						<?php  $record_display = $recordset[$i];
+						if($i == 2 || $i ==3)
+						{
+							$tmpTime=strtotime($recordset[$i]);
+							if($locale == "fr_FR") $record_display = date("d/m/Y H:i", $tmpTime);
+							else $record_display = date("m/d/y g:ia", $tmpTime);
+						}
+
 		if ($i == 0) { ?> 
 			
                  		 <TD width="<?php echo $FG_TABLE_COL[$i][2]; ?>" vAlign=middle 

@@ -3,6 +3,7 @@ include (dirname(__FILE__)."/phpagi/phpagi-asmanager.php");
 include ("./lib/defines.php");
 include ("./lib/functions.php");
 include ("./lib/database.php");
+include ("locale.php");
 
 session_start(); 
 getpost_ifset(array('confno','action','user_id'));
@@ -16,10 +17,10 @@ $FG_DEBUG = 0;
 $FG_TABLE_COL = array();
 
 
-$FG_TABLE_COL[]=array (_("ID"), "user_id", "12%", "center", "", "19");
-$FG_TABLE_COL[]=array (_("CallerId"), "callerid", "40%", "center", "", "30");
-$FG_TABLE_COL[]=array (_("Duration"), "duration", "12%", "center", "", "30");
-$FG_TABLE_COL[]=array (_("Mode"), "mode", "12%", "center", "", "30");
+$FG_TABLE_COL[]=array (utf8_encode(_("ID")), "user_id", "12%", "center", "", "19");
+$FG_TABLE_COL[]=array (utf8_encode(_("CallerId")), "callerid", "40%", "center", "", "30");
+$FG_TABLE_COL[]=array (utf8_encode(_("Duration")), "duration", "12%", "center", "", "30");
+$FG_TABLE_COL[]=array (utf8_encode(_("Mode")), "mode", "12%", "center", "", "30");
 
 
 
@@ -39,7 +40,7 @@ $FG_TOTAL_TABLE_COL = $FG_NB_TABLE_COL;
 if ($FG_VOICE_RIGHT || $FG_KICKOUT) $FG_TOTAL_TABLE_COL++;
 
 //This variable define the Title of the HTML table
-$FG_HTML_TABLE_TITLE=" - Conference Users : [ROOM : $confno] - ";
+$FG_HTML_TABLE_TITLE=utf8_encode(" - "._("Conference Users")." : ["._("ROOM")." : $confno] - ");
 
 //This variable define the width of the HTML table
 $FG_HTML_TABLE_WIDTH="100%";
@@ -288,16 +289,16 @@ if ($FG_DEBUG == 3) echo "<br>Nb_record_max : $nb_record_max";
 					<?php if (($FG_VOICE_RIGHT || $FG_KICKOUT )){ ?>
 						 <?php if ($FG_VOICE_RIGHT){ ?>
 						 
-						 	<?php if ($recordset[3]=='Muted' || $recordset[3]=='Requests Floor'){ ?>
-							 <a href="#" onClick="conf_action('unmute','<?PHP echo $confno; ?>','<?PHP echo intval($recordset[0]); ?>')">[UNMUTE]</a>
+						 	<?php if ($recordset[3]==_("Muted") || $recordset[3]=='Requests Floor'){ ?>
+							 <a href="#" onClick="conf_action('unmute','<?PHP echo $confno; ?>','<?PHP echo intval($recordset[0]); ?>')">[<?php echo _("UNMUTE"); ?>]</a>
 							<?php }else{ ?>
-							 <a href="#" onClick="conf_action('mute','<?PHP echo $confno; ?>','<?PHP echo intval($recordset[0]); ?>'); ">[MUTE]</a>
+							 <a href="#" onClick="conf_action('mute','<?PHP echo $confno; ?>','<?PHP echo intval($recordset[0]); ?>'); ">[<?php echo _("MUTE"); ?>]</a>
 							<?php } ?>
 							
 						<?php } ?>
 						-
 						<?php if ($FG_KICKOUT){ ?>
-							 <a href="#"  onClick="javascript:conf_action('kick','<?PHP echo $confno; ?>','<?PHP echo intval($recordset[0]); ?>')">[KICK]</a>
+							 <a href="#"  onClick="javascript:conf_action('kick','<?PHP echo $confno; ?>','<?PHP echo intval($recordset[0]); ?>')">[<?php echo _("KICK"); ?>]</a>
 
 						<?php } ?>
 				   		
@@ -342,7 +343,7 @@ if ($FG_DEBUG == 3) echo "<br>Nb_record_max : $nb_record_max";
         </tr>
       </table>
 <?php }else{ ?>
-<?php echo _("No user in this conference room")."."; ?>
+<?php echo utf8_encode(_("No user in this conference room"))."."; ?>
 <?php } ?>
 </center>
 <?php } // if (isset($confno))  ?>

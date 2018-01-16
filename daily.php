@@ -73,24 +73,9 @@ session_start();
 
 <b><?php print _("Total Conferences Scheduled and used on"); ?>: </b>
 
-<SELECT NAME="month" onChange="monthPop(this.form,this.form.day.selectedIndex)">
-<?php for ($i=0; $i<12; $i++){
-if ( $i < 9 ){
-        if ( $i+1 == intval(date("n", $starttime)) ){ ?>
-        <OPTION SELECTED VALUE="0<?php echo $i+1; ?>"><?php echo $months[$i]; ?>
-        <?php } else { ?>
-        <OPTION VALUE="0<?php echo $i+1; ?>"><?php echo $months[$i]; ?>
-        <?php } ?>
-<?php } else {
-        if ( $i+1 == intval(date("n", $starttime)) ){ ?>
-        <OPTION SELECTED VALUE="<?php echo $i+1; ?>"><?php echo $months[$i]; ?>
-        <?php } else { ?>
-        <OPTION VALUE="<?php echo $i+1;?>"><?php echo $months[$i]; ?>
-        <?php } ?>
-<?php } ?>
-<?php } ?>
-
-</SELECT>
+<?php
+if ( $locale == "fr_FR" ) {
+?>
 <SELECT NAME="day" onChange="reportUpdate(this.form)">
 <?php $tmp=intval(date("n", $starttime));
 for ($i=1; $i<= $days[$tmp-1]; $i++) {
@@ -109,6 +94,49 @@ if ( $i < 9 ){
 <?php  } ?>
 <?php  } ?>
 </SELECT>
+<?php } ?>
+
+<SELECT NAME="month" onChange="monthPop(this.form,this.form.day.selectedIndex)">
+<?php for ($i=0; $i<12; $i++){
+if ( $i < 9 ){
+        if ( $i+1 == intval(date("n", $starttime)) ){ ?>
+        <OPTION SELECTED VALUE="0<?php echo $i+1; ?>"><?php echo $months[$i]; ?>
+        <?php } else { ?>
+        <OPTION VALUE="0<?php echo $i+1; ?>"><?php echo $months[$i]; ?>
+        <?php } ?>
+<?php } else {
+        if ( $i+1 == intval(date("n", $starttime)) ){ ?>
+        <OPTION SELECTED VALUE="<?php echo $i+1; ?>"><?php echo $months[$i]; ?>
+        <?php } else { ?>
+        <OPTION VALUE="<?php echo $i+1;?>"><?php echo $months[$i]; ?>
+        <?php } ?>
+<?php } ?>
+<?php } ?>
+
+</SELECT>
+
+<?php
+if ( $locale != "fr_FR" ) {
+?>
+<SELECT NAME="day" onChange="reportUpdate(this.form)">
+<?php $tmp=intval(date("n", $starttime));
+for ($i=1; $i<= $days[$tmp-1]; $i++) {
+if ( $i < 9 ){
+        if ( $i == intval(date("j", $starttime)) ){ ?>
+        <OPTION SELECTED VALUE="0<?php echo $i; ?>"><?php echo $i; ?>
+        <?php } else { ?>
+        <OPTION VALUE="0<?php echo $i; ?>"><?php echo $i; ?>
+        <?php } ?>
+<?php } else {
+        if ( $i == intval(date("j", $starttime)) ){ ?>
+        <OPTION SELECTED VALUE="<?php echo $i; ?>"><?php echo $i; ?>
+        <?php } else { ?>
+        <OPTION VALUE="<?php echo $i; ?>"><?php echo $i; ?>
+        <?php  } ?>
+<?php  } ?>
+<?php  } ?>
+</SELECT>
+<?php } ?>
 
 <SELECT NAME="year" onChange="monthPop(this.form,this.form.month.selectedIndex)" >
 <?php  for ($i=0; $i<=3; $i++){
