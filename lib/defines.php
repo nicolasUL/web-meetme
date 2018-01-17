@@ -1,7 +1,5 @@
 <?php
 
-include(FSROOT."locale.php");
-
 //To debug uncomment the following
 //ini_set('display_errors', TRUE);
 //error_reporting(E_ALL ^ E_NOTICE);
@@ -12,6 +10,8 @@ include(FSROOT."locale.php");
 define ("WEBROOT", "https://dev-asterisk.phoenix.com/web-meetme/");
 define ("FSROOT", "/var/www/html/web-meetme/");
 define ("LIBDIR", FSROOT."lib/");
+
+include(FSROOT."locale.php");
 
 //GUI title
 define("GUI_TITLE", "Web-MeetMe");
