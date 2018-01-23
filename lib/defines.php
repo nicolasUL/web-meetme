@@ -18,6 +18,7 @@ define("GUI_TITLE", "Web-MeetMe");
 define("GUI_ICON", "asterisk.gif");
 define("GUI_VER", "4.0.5");
 define("GUI_SRC", "http://sourceforge.net/projects/web-meetme/");
+define("GUI_UPDT", ""); //Last update
 
 //Email Variables - Support contacts, Call in numbers and other spit and polish for the about page.
 define("LOCAL_SUPPORT", "Support Department");
@@ -112,8 +113,8 @@ function contact(){
 	<table width="90%">
 	<tr><td couluns=2 ><br><h1><?php print _("Support Team"); ?> ...</h1></td></tr>
 	<tr>
-	<td><em><strong>Contact: </strong></em><?php print _("Contact"); ?></td>
-	<td><em><strong>Phone: </strong></em><?php _("Phone"); ?></td>
+	<td><em><strong><?php print _("Contact: "); ?></strong></em><?php echo LOCAL_SUPPORT; ?></td>
+	<td><em><strong><?php print _("Phone: "); ?></strong></em><?php echo LOCAL_PHONE; ?></td>
 	</tr>
 
 	<tr><td span=2 ><br><h2><?php print _("Developer Team"); ?> ...</h2></td></tr>
@@ -124,16 +125,16 @@ function contact(){
       	</a></td>
   	</tr>
 	<tr>
-	<td><em><strong>Last update: </strong></em><?php  _("Last update"); ?></td>
-	<td><em><strong>Developer Website: </strong></em><a href="<?php _("Developer Website"); ?>">Web-MeetMe</a></td>
+	<td><em><strong><?php print _("Last update: "); ?></strong></em><?php echo GUI_UPDT; ?></td>
+	<td><em><strong><?php print _("Developer Website: "); ?></strong></em><a href="<?php echo GUI_SRC; ?>" target="_blank">Web-MeetMe</a></td>
 	</tr>
 	<tr>
 	<td><br><img src="images/<?=PBX_ICON?>"></td>
 	<tr>
-	<td><h2>User details ...</h2></td>
+	<td><h2><?php print _("User details ..."); ?></h2></td>
 	</tr>
 	<tr>
-	<td> <?php print _("Currently logged on as"); ?> <?php echo $_SESSION['userid']?> a <?php echo $_SESSION['privilege']?> <?php if (isset ($_SESSION['groups'])) print _("and a member of"); ?> <?php if (isset ($_SESSION['groups'])) echo $_SESSION['groups']?></td>
+	<td> <?php print _("Currently logged on as"); ?> <?php echo $_SESSION['userid']?> (<?php echo $_SESSION['privilege']?>) <?php if (isset ($_SESSION['groups'])) print _("and a member of"); ?> <?php if (isset ($_SESSION['groups'])) echo $_SESSION['groups']?></td>
 	</tr>
 	</table>
 <br><br>

@@ -34,25 +34,26 @@ if (defined('AUTH_TYPE')){
 	session_set_cookie_params(0, '/' );
 	session_start();
 
-	if ($_SESSION['auth']) {
+	if (isset($_SESSION['auth'])) {
         	if (($_SESSION['lifetime']) <= time()){
-                	$_SESSION['auth'] = 0;
-                	$_SESSION['privilege'] = "";
-                	$_SESSION['userid'] = "";
+                	unset($_SESSION['auth']);
+               	unset($_SESSION['privilege']);
+                	unset($_SESSION['userid']);
                 	unset($AUTH_USER);
                 	unset($AUTH_PW);
         	}
 	} 
 
-	if ( !($_SESSION['auth']) && $AUTH_USER != NULL && $AUTH_PW != NULL ){
+	if ( !isset($_SESSION['auth']) && $AUTH_USER != NULL && $AUTH_PW != NULL ){
 		$user = new userSec();
 		$user -> authenticate($AUTH_USER, $AUTH_PW);
 		$user -> isAdmin($AUTH_USER);
 	}
 
-	if (!($_SESSION['auth']))
+	if (!isset($_SESSION['auth']))
 		$section="section99";
 
+	}
 }
 include ("./lib/header.php");
 include ("./lib/leftnav.php");
@@ -869,12 +870,14 @@ document.WMAdd.confDesc.focus()
 
 <?php }elseif ($section==$logoff_section)
 {
-	$_SESSION['auth'] = 0;
-	$_SESSION['userid'] = "";
-	$_SESSION['privilege'] = "";
+	unset($_SESSION['auth']);
+	unset($_SESSION['userid']);
+	unset($_SESSION['privilege']);
 	unset($AUTH_USER);
 	unset($AUTH_PW);
 	echo _("You have successfully logged off. ");
+
+<?php	
 }
 elseif ($section=="section99"){
 

@@ -1,0 +1,957 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Web-meetme-4.0.5 french translation\n"
+"POT-Creation-Date: 2018-01-19 15:43+0100\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Nicolas TEISSIER <nicolas.teissier@univ-lorraine.fr>\n"
+"Language-Team: \n"
+"Language: fr_FR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.0.4\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Poedit-Basepath: ../../..\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPath-1: lib\n"
+
+#: about.php:25 conf_delete.php:147 daily.php:12 out_call.php:13
+#: user_add_sqldb.php:122 user_edit_sqldb.php:92
+msgid "control"
+msgstr "control"
+
+#: about.php:46 about.php:119 meetme_control.php:74
+msgid "Control"
+msgstr "Control"
+
+#: about.php:55
+msgid "Site Navigation"
+msgstr "Site Navigation"
+
+#: about.php:121
+msgid "Intro-Text-About"
+msgstr "Intro-Text-About"
+
+#: about.php:184
+msgid "Screen-shot"
+msgstr "Screen-shot"
+
+#: about.php:194
+msgid "Developer team ..."
+msgstr "Equipe de développeurs ..."
+
+#: about.php:203
+msgid "Click to email me"
+msgstr "Cliquer pour m'écrire"
+
+#: about.php:209
+msgid "Last update"
+msgstr "Dernière mise à jour"
+
+#: about.php:213
+msgid "Coming soon"
+msgstr "A bientôt"
+
+#: call_operator.php:37 conf_add.php:32 conf_async.php:19 user_add_sqldb.php:20
+msgid "ID"
+msgstr "ID"
+
+#: call_operator.php:38
+msgid "Channel"
+msgstr "Channel"
+
+#: call_operator.php:39
+msgid "ConfNo"
+msgstr "ConfNo"
+
+#: call_operator.php:40 conf_async.php:22
+msgid "Mode"
+msgstr "Mode"
+
+#: call_operator.php:75 conf_actions.php:26 conf_async.php:67
+msgid "Error connection to the manager"
+msgstr "Erreur de connexion au manager"
+
+#: call_operator.php:139
+msgid "Call Placed"
+msgstr "Call Placed"
+
+#: call_operator.php:141
+msgid "System error, try again later"
+msgstr "Erreur système, veuillez essayer plus tard"
+
+#: call_operator.php:158
+msgid "CHANNEL"
+msgstr "CHANNEL"
+
+#: call_operator.php:167
+msgid "EXTEN"
+msgstr "EXTEN"
+
+#: call_operator.php:176
+msgid "CONTEXT"
+msgstr "CONTEXT"
+
+#: call_operator.php:185
+msgid "PRIORITY"
+msgstr "PRIORITY"
+
+#: call_operator.php:194
+msgid "TIMEOUT"
+msgstr "TIMEOUT"
+
+#: call_operator.php:202
+msgid "CALLERID"
+msgstr "CALLERID"
+
+#: call_operator.php:210
+msgid "VARIABLE"
+msgstr "VARIABLE"
+
+#: call_operator.php:218
+msgid "ACCOUNT"
+msgstr "ACCOUNT"
+
+#: call_operator.php:226
+msgid "APPLICATION"
+msgstr "APPLICATION"
+
+#: call_operator.php:234
+msgid "DATA"
+msgstr "DATA"
+
+#: conf_add.php:33 user_add_sqldb.php:21
+msgid "ConfId"
+msgstr "ConfId"
+
+#: conf_add.php:34 meetme_control.php:763 meetme_control.php:878
+#: update_user.php:106 user_add_sqldb.php:22 user_management.php:22
+msgid "Password"
+msgstr "Mot de passe"
+
+#: conf_add.php:35 user_add_sqldb.php:23
+msgid "starttime"
+msgstr "sarttime"
+
+#: conf_add.php:36 user_add_sqldb.php:24
+msgid "endtime"
+msgstr "endtime"
+
+#: conf_add.php:37 user_add_sqldb.php:25
+msgid "Callers"
+msgstr "Callers"
+
+#: conf_add.php:59
+msgid "Scheduled Conferences"
+msgstr "Conférences programmées"
+
+#: conf_add.php:98
+msgid "Sorry, you are not allowed to schedule a conference in the past endtime"
+msgstr "Désolé, vous ne pouvez pas programmer une conférence dans le passé"
+
+#: conf_add.php:101
+msgid "A conference number must be numeric"
+msgstr "Un numéro de conférence doit être composé uniquement de chiffres"
+
+#: conf_add.php:153 conf_add.php:157 conf_add.php:159 conf_add.php:394
+#: conf_add.php:398 conf_add.php:400
+msgid "Conference PINs must be numeric only"
+msgstr "Le mot de passe doit être composé de chiffres uniquement"
+
+#: conf_add.php:161 conf_add.php:402
+msgid "Moderator and user PINs must not be equal"
+msgstr "Les mots de passe modérateur et utilisateur doivent être différents"
+
+#: conf_add.php:163 conf_add.php:404
+msgid "Moderator PIN required if  'Wait for Leader is set'"
+msgstr ""
+"Le mot de passe modérateur est obligatoire si l'option 'Attente initiateur' "
+"est sélectionnée"
+
+#: conf_add.php:167 conf_add.php:408
+msgid "You must reserve at least 2 seats in this conference"
+msgstr "La conférence doit être composée d'au moins 2 participants"
+
+#: conf_add.php:213
+msgid ""
+"Your conference is not unique.  Please use a different start time or "
+"conference ID"
+msgstr ""
+"Votre conférence n'est pas unique. Veuillez sélectionner une date de début "
+"ou un numéro de conférence différent"
+
+#: conf_add.php:349
+msgid "Sorry, you are not allowed to  scheduled a conference in the past"
+msgstr "Désolé, vous ne pouvez pas programmer une conférence dans le passé"
+
+#: conf_add.php:442
+msgid ""
+"Your conference is not unique.  Please a different start time or conference "
+"ID"
+msgstr ""
+"Votre conférence n'est pas unique. Veuillez sélectionner une date de début "
+"ou un numéro de conférence différent"
+
+#: conf_add.php:557 lib/header.php:8 meetme_control.php:563
+msgid "Add Conference"
+msgstr "Créer la conférence"
+
+#: conf_add.php:580
+msgid "Your Conference Details"
+msgstr "Détail de la conférence"
+
+#: conf_add.php:615 conf_add.php:622
+msgid "Continue"
+msgstr "Valider"
+
+#: conf_add.php:638
+msgid "Conference"
+msgstr "Conférence"
+
+#: conf_add.php:642
+msgid "Scheduled"
+msgstr "programmée"
+
+#: conf_add.php:646
+msgid "Updated"
+msgstr "mise à jour"
+
+#: conf_add.php:650
+msgid "Send conference call details and the message you enter below"
+msgstr "Envoyer les détails de la conférence et votre message ci-dessous"
+
+#: conf_add.php:655
+msgid "Email Message"
+msgstr "Message"
+
+#: conf_add.php:682 conf_add.php:688
+msgid "email participants"
+msgstr "email participants"
+
+#: conf_add.php:704
+msgid "Conference Not Scheduled"
+msgstr "Conférence non programmée"
+
+#: conf_async.php:20
+msgid "CallerId"
+msgstr "Nom/Numéro de l'appelant"
+
+#: conf_async.php:21 conf_cdr.php:23 meetme_control.php:476
+msgid "Duration"
+msgstr "Durée"
+
+#: conf_async.php:42
+msgid "Conference Users"
+msgstr "Utilisateurs de la conférence"
+
+#: conf_async.php:42
+msgid "ROOM"
+msgstr "Numéro"
+
+#: conf_async.php:81
+msgid ""
+"You are not the owner of this conference or the conference does not exist"
+msgstr ""
+"Vous n'êtes pas l'initateur de cette conférence, ou la conférence n'existe "
+"pas"
+
+#: conf_async.php:96
+msgid "Unknown "
+msgstr "Inconnu "
+
+#: conf_async.php:105
+msgid "Talking"
+msgstr "Intervenant"
+
+#: conf_async.php:107
+msgid "UnMuted"
+msgstr "Normal"
+
+#: conf_async.php:110
+msgid "Muted"
+msgstr "Muet"
+
+#: conf_async.php:112
+msgid "Requests Floor"
+msgstr "Requests Floor"
+
+#: conf_async.php:114
+msgid "User"
+msgstr "Utilisateur"
+
+#: conf_async.php:115 user_edit_sqldb.php:19
+msgid "Admin"
+msgstr "Administrateur"
+
+#: conf_async.php:292
+msgid "UNMUTE"
+msgstr "NORMAL"
+
+#: conf_async.php:294
+msgid "MUTE"
+msgstr "MUET"
+
+#: conf_async.php:300
+msgid "KICK"
+msgstr "EXPULSER"
+
+#: conf_async.php:345
+msgid "No user in this conference room"
+msgstr "Aucun utilisateur dans cette conférence"
+
+#: conf_cdr.php:21
+msgid "Caller Name"
+msgstr "Caller Name"
+
+#: conf_cdr.php:22 lib/functions_js.php:59 meetme_control.php:754
+#: update_user.php:98
+msgid "Telephone"
+msgstr "Téléphone"
+
+#: conf_cdr.php:43
+msgid "Conference Participants"
+msgstr "Participants de la conférence"
+
+#: conf_cdr.php:195 conf_delete.php:304 conf_update.php:312
+#: user_edit_sqldb.php:213
+msgid "No data found"
+msgstr "Aune donnée trouvée"
+
+#: conf_cdr.php:244
+msgid "No participants found for that conference number"
+msgstr "Aucun participant trouvé pour cette conférence"
+
+#: conf_delete.php:22 conf_listen.php:23 conf_update.php:21 listen.php:47
+msgid "Conference #"
+msgstr "N° Conférence"
+
+#: conf_delete.php:23 conf_listen.php:24 conf_update.php:22
+#: email_participants.php:23 lib/email_body.php:26 lib/email_body.php:42
+#: meetme_control.php:266
+msgid "Conference Name"
+msgstr "Nom conférence"
+
+#: conf_delete.php:24 conf_update.php:23
+msgid "Starts"
+msgstr "Début"
+
+#: conf_delete.php:25 conf_update.php:24
+msgid "Ends"
+msgstr "Fin"
+
+#: conf_delete.php:26 conf_update.php:25 email_participants.php:29
+#: lib/email_body.php:32 lib/email_body.php:48
+msgid "Participants"
+msgstr "Participants"
+
+#: conf_delete.php:46 conf_listen.php:46 conf_update.php:47
+msgid "Scheduled Conference"
+msgstr "Conférences programmées"
+
+#: conf_delete.php:180
+msgid "Uncheck All"
+msgstr "Désélectionner tout"
+
+#: conf_delete.php:186 conf_delete.php:344
+msgid "Check All"
+msgstr "Sélectionner tout"
+
+#: conf_delete.php:331 conf_listen.php:287 conf_update.php:341
+#: user_edit_sqldb.php:239
+msgid "Previous"
+msgstr "Précédent"
+
+#: conf_delete.php:336 conf_listen.php:296 conf_update.php:351
+#: user_edit_sqldb.php:244
+msgid "Next"
+msgstr "Suivant"
+
+#: conf_delete.php:345
+msgid "Delete Selected"
+msgstr "Supprimer la sélection"
+
+#: conf_delete.php:345 update_user.php:131 update_user.php:132
+msgid "Are you sure"
+msgstr "Etes-vous sûr"
+
+#: conf_delete.php:349
+msgid "No conference with that conference number"
+msgstr "Aucune conférence avec ce numéro"
+
+#: conf_listen.php:25
+msgid "Start"
+msgstr "Start"
+
+#: conf_listen.php:26
+msgid "End"
+msgstr "End"
+
+#: conf_listen.php:308
+msgid "No recorded conference found with that conference number and pin"
+msgstr "Aucune conférence enregistrée trouvée avec ce numéro de conférence"
+
+#: conf_update.php:363
+msgid "No conferences found"
+msgstr "Aucune conférence trouvée"
+
+#: daily.php:74
+msgid "Total Conferences Scheduled and used on"
+msgstr "Conférences programmées et utilisées le"
+
+#: email_participants.php:21
+msgid "Admin Password"
+msgstr "Mot de passe Administrateur"
+
+#: email_participants.php:22
+msgid "has invited you to the following conference call"
+msgstr "vous a invité à suivre cette conférence"
+
+#: email_participants.php:24 meetme_control.php:284
+msgid "Conference Number"
+msgstr "Numéro Conférence"
+
+#: email_participants.php:26 lib/email_body.php:29 lib/email_body.php:45
+msgid "Conference Password"
+msgstr "Mot de passe Conférence"
+
+#: email_participants.php:27 lib/email_body.php:30 lib/email_body.php:46
+msgid "Start Date and Time"
+msgstr "Date et heure de début"
+
+#: email_participants.php:28 lib/email_body.php:31 lib/email_body.php:47
+msgid "End Date and Time"
+msgstr "Date et heure de fin"
+
+#: email_participants.php:31 lib/email_body.php:35 lib/email_body.php:51
+msgid "Dial In Info"
+msgstr "Procédure de connexion à la conférence"
+
+#: email_participants.php:32
+msgid "You will then prompted for the conference and pin numbers"
+msgstr "Les numéros de la conférence et le mot de passe vous seront demandés"
+
+#: email_participants.php:35
+msgid "This conference will be recorded. After the conference is complete"
+msgstr "Cette conférence va être enregistrée. Une fois la conférence terminée"
+
+#: email_participants.php:36
+msgid "you may listen to the recording by"
+msgstr "vous pourrez réécouter la conférence en allant à l'adresse"
+
+#: email_participants.php:37
+msgid "Click"
+msgstr "cliquant sur"
+
+#: email_participants.php:42
+msgid "Administrator"
+msgstr "Administrateur"
+
+#: email_participants.php:52
+msgid "Conference Call"
+msgstr "Conference Call"
+
+#: email_participants.php:54
+msgid "The following message has been sent to all invited participants"
+msgstr "Ce message a été envoyé à tous les participants que vous avez invité"
+
+#: lib/defines.php:73 lib/defines.php:74
+msgid "Announce"
+msgstr "Enregistrement Nom Participant"
+
+#: lib/defines.php:73
+msgid "Record"
+msgstr "Enregistrer Conférence"
+
+#: lib/defines.php:74
+msgid "Listen Only"
+msgstr "Mode Ecoute Seule"
+
+#: lib/defines.php:74
+msgid "Wait for Leader"
+msgstr "Attente du modérateur"
+
+#: lib/defines.php:102
+msgid "January"
+msgstr "janvier"
+
+#: lib/defines.php:102
+msgid "February"
+msgstr "février"
+
+#: lib/defines.php:102
+msgid "March"
+msgstr "mars"
+
+#: lib/defines.php:102
+msgid "April"
+msgstr "Avril"
+
+#: lib/defines.php:102
+msgid "May"
+msgstr "mai"
+
+#: lib/defines.php:102
+msgid "June"
+msgstr "juin"
+
+#: lib/defines.php:102
+msgid "July"
+msgstr "juillet"
+
+#: lib/defines.php:102
+msgid "August"
+msgstr "Aout"
+
+#: lib/defines.php:102
+msgid "September"
+msgstr "septembre"
+
+#: lib/defines.php:102
+msgid "October"
+msgstr "octobre"
+
+#: lib/defines.php:102
+msgid "November"
+msgstr "novembre"
+
+#: lib/defines.php:102
+msgid "December"
+msgstr "décembre"
+
+#: lib/defines.php:106
+msgid "Daily"
+msgstr "Tous les jours"
+
+#: lib/defines.php:106
+msgid "Weekly"
+msgstr "Toutes les semaines"
+
+#: lib/defines.php:106
+msgid "Bi-weekly"
+msgstr "Toutes les 2 semaines"
+
+#: lib/defines.php:113
+msgid "Support Team"
+msgstr "Equipe support"
+
+#: lib/defines.php:115
+msgid "Contact: "
+msgstr "Contact: "
+
+#: lib/defines.php:116
+msgid "Phone: "
+msgstr "Téléphone: "
+
+#: lib/defines.php:119
+msgid "Developer Team"
+msgstr "Equipe de développeurs"
+
+#: lib/defines.php:127
+msgid "Last update: "
+msgstr "Dernière mise à jour: "
+
+#: lib/defines.php:128
+msgid "Developer Website: "
+msgstr "Site internet des développeurs: "
+
+#: lib/defines.php:133
+msgid "User details ..."
+msgstr "Utilisateur ..."
+
+#: lib/defines.php:136
+msgid "Currently logged on as"
+msgstr "Actuellement connecté en tant que"
+
+#: lib/defines.php:136
+msgid "and a member of"
+msgstr "et un membre du groupe"
+
+#: lib/email_body.php:27 lib/email_body.php:43 meetme_control.php:273
+msgid "Conference Owner"
+msgstr "Initiateur Conférence"
+
+#: lib/email_body.php:28 lib/email_body.php:44
+msgid "Conference ID"
+msgstr "Numéro de conférence"
+
+#: lib/email_body.php:33 lib/email_body.php:49
+msgid "Recurrence Information"
+msgstr "Conférence récurrente"
+
+#: lib/email_body.php:36 lib/email_body.php:52
+msgid "The conference call can be accessed by calling"
+msgstr "La conférence peut être jointe en appelant"
+
+#: lib/email_body.php:37 lib/email_body.php:53
+msgid "Please contact"
+msgstr "Veuillez contacter"
+
+#: lib/email_body.php:37 lib/email_body.php:53
+msgid "at"
+msgstr "at"
+
+#: lib/email_body.php:37 lib/email_body.php:53
+msgid "for assistance"
+msgstr "pour l'assistance"
+
+#: lib/functions_js.php:47
+msgid "First name"
+msgstr "Prénom"
+
+#: lib/functions_js.php:51
+msgid "Last name"
+msgstr "Nom"
+
+#: lib/functions_js.php:55
+msgid "Email"
+msgstr "Email"
+
+#: lib/functions_js.php:62 lib/functions_js.php:103
+msgid "Delete"
+msgstr "Supprimer"
+
+#: lib/functions_js.php:126
+msgid "Please enter a valid email address"
+msgstr "Veuiller entrer une adresse email valide"
+
+#: lib/header.php:5
+msgid "Information"
+msgstr "Information"
+
+#: lib/header.php:7
+msgid "Scheduling"
+msgstr "Gestion des conférences"
+
+#: lib/header.php:9
+msgid "Delete Conferences"
+msgstr "Suppression"
+
+#: lib/header.php:10
+msgid "Past Conferences"
+msgstr "Terminées"
+
+#: lib/header.php:11
+msgid "Current Conferences"
+msgstr "En cours"
+
+#: lib/header.php:12
+msgid "Future Conferences"
+msgstr "Programmées"
+
+#: lib/header.php:22 lib/header.php:28
+msgid "User Management"
+msgstr "Gestion des utilisateurs"
+
+#: lib/header.php:22 meetme_control.php:795
+msgid "Add User"
+msgstr "Ajouter utilisateur"
+
+#: lib/header.php:22 lib/header.php:28 update_user.php:131
+msgid "Update User"
+msgstr "Mise à jour Utilisateur"
+
+#: lib/header.php:35
+msgid "Reports"
+msgstr "Rapports"
+
+#: lib/header.php:39
+msgid "About"
+msgstr "A propos"
+
+#: lib/header.php:45
+msgid "Log-off"
+msgstr "Déconnexion"
+
+#: lib/report-gen.php:69
+msgid "Key:"
+msgstr "Légende :"
+
+#: lib/report-gen.php:70
+msgid "    Conferences Scheduled"
+msgstr "    Conférences programmées"
+
+#: lib/report-gen.php:71
+msgid "    Conferences used"
+msgstr "    Conférences utilisées"
+
+#: lib/report-gen.php:72
+msgid "Minutes Used: "
+msgstr "Minutes utilisées : "
+
+#: lib/report-gen.php:94
+msgid "No Conferences Scheduled"
+msgstr "Aucune conférence programmée"
+
+#: listen.php:40
+msgid "Please enter the conference number and pin"
+msgstr "Veuillez entrer le numéro et le mot de passe de la conférence"
+
+#: listen.php:54
+msgid "Pin"
+msgstr "Pin"
+
+#: meetme_control.php:76
+msgid ""
+"<h2>Communicate and control your audience.</h2>\n"
+"\n"
+"<p>Conferencing puts you in complete control of your virtual meetings, "
+"bringing them to life in a fully interactive meeting\n"
+"room over the Internet.</p>\n"
+"\n"
+"<p>Now, you can control your conference on your PC screen and manage a "
+"dynamic visual presentation over the Internet. </p>"
+msgstr ""
+"<h2>Communicate and control your audience.</h2>\n"
+"\n"
+"<p>Conferencing puts you in complete control of your virtual meetings, "
+"bringing them to life in a fully interactive meeting\n"
+"room over the Internet.</p>\n"
+"\n"
+"<p>Now, you can control your conference on your PC screen and manage a "
+"dynamic visual presentation over the Internet. </p>"
+
+#: meetme_control.php:96 meetme_control.php:629
+msgid "Select the room number that you want to handle"
+msgstr "Sélectionner le numéro de la coférence à gérer"
+
+#: meetme_control.php:103 meetme_control.php:636
+msgid "Conference ROOM"
+msgstr "Chercher une conférence"
+
+#: meetme_control.php:133
+msgid "Extend"
+msgstr "Prolonger"
+
+#: meetme_control.php:135
+msgid "End now"
+msgstr "Arrêter"
+
+#: meetme_control.php:137 meetme_control.php:521
+msgid "Invite"
+msgstr "Inviter"
+
+#: meetme_control.php:191 meetme_control.php:500
+msgid "days"
+msgstr "jours"
+
+#: meetme_control.php:194 meetme_control.php:196
+msgid "weeks"
+msgstr "semaines"
+
+#: meetme_control.php:238
+msgid "Change details about this conference"
+msgstr "Modifier les informations de cette conférence"
+
+#: meetme_control.php:254
+msgid "Enter the details about the conference to add"
+msgstr "Entrer les informations de la conférence à ajouter"
+
+#: meetme_control.php:266
+msgid "Conference Description"
+msgstr "Nom de la conférence (nom qui figurera dans le mail d'invitation)"
+
+#: meetme_control.php:284
+msgid "Conference Room  Number"
+msgstr "Sélectionner un numéro de conférence"
+
+#: meetme_control.php:291
+msgid "Numeric password for the Moderator"
+msgstr "Mot de passe modérateur (chiffres uniquement)"
+
+#: meetme_control.php:291
+msgid "Moderator PIN"
+msgstr "Mot de passe Modérateur"
+
+#: meetme_control.php:299
+msgid "Options that apply only to Moderators"
+msgstr "Options pour le modérateur"
+
+#: meetme_control.php:299
+msgid "Moderator Options"
+msgstr "Options Modérateur"
+
+#: meetme_control.php:334
+msgid "No Passwords"
+msgstr "Pas de mot de passe"
+
+#: meetme_control.php:343
+msgid "Numeric password for normal callers"
+msgstr "Mot de passe utilisateur (chiffres uniquement)"
+
+#: meetme_control.php:343
+msgid "User PIN"
+msgstr "Mot de passe Utilisateur"
+
+#: meetme_control.php:351
+msgid "Options that apply only to normal callers"
+msgstr "Options pour les utilisateurs"
+
+#: meetme_control.php:351
+msgid "User Options"
+msgstr "Options Utilisateurs"
+
+#: meetme_control.php:388
+msgid "Start Time"
+msgstr "Date début"
+
+#: meetme_control.php:485
+msgid "Single or repeating scheduled conferences"
+msgstr "Conférence unique ou répétée"
+
+#: meetme_control.php:485
+msgid "Recurs"
+msgstr "Répétition"
+
+#: meetme_control.php:490
+msgid "Reoccurs"
+msgstr "Répéter"
+
+#: meetme_control.php:497
+msgid "for"
+msgstr "pendant"
+
+#: meetme_control.php:508
+msgid "How many callers may join"
+msgstr "Nombre de participants maximum à la conférence"
+
+#: meetme_control.php:508
+msgid "Max Participants"
+msgstr "Maximum Participants"
+
+#: meetme_control.php:525
+msgid "Invite to conference"
+msgstr "Inviter à la conférence"
+
+#: meetme_control.php:558
+msgid "Update Conference"
+msgstr "Mise à jour"
+
+#: meetme_control.php:560
+msgid "Update the Series"
+msgstr "Modifier la série"
+
+#: meetme_control.php:563
+msgid "Are you sure?"
+msgstr "Etes-vous sûr ?"
+
+#: meetme_control.php:585
+msgid "Select the Conference that you want to Delete"
+msgstr "Sélectionner la conférence à supprimer"
+
+#: meetme_control.php:592 meetme_control.php:684
+msgid "Search for Conference"
+msgstr "Chercher une conférence"
+
+#: meetme_control.php:669
+msgid "Select the Conference that you want to Review"
+msgstr "Sélectionner la conférence à revoir"
+
+#: meetme_control.php:672
+msgid "Select the Conference that you want to Monitor"
+msgstr "Sélectionner la conférence à superviser"
+
+#: meetme_control.php:675
+msgid "Select the Conference that you want to Modify"
+msgstr "Sélectionner la conférence à modifier"
+
+#: meetme_control.php:722 update_user.php:64 user_management.php:7
+msgid "Enter the details about the user to add"
+msgstr "Entrer les informations de l'utilisateur à ajouter"
+
+#: meetme_control.php:729 update_user.php:73
+msgid "First Name"
+msgstr "Prénom"
+
+#: meetme_control.php:737 update_user.php:81
+msgid "Last Name"
+msgstr "Nom"
+
+#: meetme_control.php:746 meetme_control.php:854 update_user.php:90
+#: user_add_sqldb.php:153 user_edit_sqldb.php:18 user_management.php:30
+msgid "User Email"
+msgstr "Email"
+
+#: meetme_control.php:775 update_user.php:115 user_add_sqldb.php:154
+#: user_management.php:38
+msgid "Is Admin"
+msgstr "Administrateur "
+
+#: meetme_control.php:778 update_user.php:119
+msgid "No"
+msgstr "Non"
+
+#: meetme_control.php:778 update_user.php:121
+msgid "Yes"
+msgstr "Oui"
+
+#: meetme_control.php:819 user_management.php:79
+msgid "Select the user that you want to edit"
+msgstr "Sélectionner l'utilisateur à modifier"
+
+#: meetme_control.php:831
+msgid "Select the date to view a Report"
+msgstr "Sélectionner la date du rapport à consulter"
+
+#: meetme_control.php:849
+msgid "You have successfully logged off. "
+msgstr "Vous vous êtes déconnecté avec succès. "
+
+#: meetme_control.php:858
+msgid "Logon Name"
+msgstr "Logon Name"
+
+#: meetme_control.php:862
+msgid "Login"
+msgstr "Login"
+
+#: meetme_control.php:864
+msgid "Please enter your username and password"
+msgstr "Veuillez entrer votre identifiant et votre mot de passe"
+
+#: meetme_control.php:878
+msgid "Your password goes here"
+msgstr "Indiquer ici votre mot de passe"
+
+#: out_call.php:39
+msgid "Outbound Call to invited participant"
+msgstr "Lancer un appel pour inviter un participant"
+
+#: out_call.php:44
+msgid "Telephone #"
+msgstr "Numéro téléphone"
+
+#: out_call.php:47
+msgid "CALL"
+msgstr "Appeler"
+
+#: update_user.php:132
+msgid "Remove User"
+msgstr "Supprimer Utilisateur"
+
+#: update_user.php:141
+msgid "You Are not an Administrator of this system"
+msgstr "Vous n'êtes pas administrateur de ce système"
+
+#: user_add_sqldb.php:150
+msgid "User Created"
+msgstr "Utilisateur créé"
+
+#: user_add_sqldb.php:151 user_management.php:14
+msgid "User Name"
+msgstr "Nom Utilisateur"
+
+#: user_add_sqldb.php:152
+msgid "User Password"
+msgstr "Mot de passe utilisateur"
+
+#: user_add_sqldb.php:166
+msgid "User Deleted"
+msgstr "Utilisateur supprimé"
+
+#: user_add_sqldb.php:175
+msgid "User Not Created"
+msgstr "Utilisateur non créé"
+
+#: user_edit_sqldb.php:39
+msgid "Users"
+msgstr "Utilisateurs"
