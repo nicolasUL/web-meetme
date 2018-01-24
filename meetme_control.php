@@ -53,7 +53,6 @@ if (defined('AUTH_TYPE')){
 	if (!isset($_SESSION['auth']))
 		$section="section99";
 
-	}
 }
 include ("./lib/header.php");
 include ("./lib/leftnav.php");
@@ -877,7 +876,6 @@ document.WMAdd.confDesc.focus()
 	unset($AUTH_PW);
 	echo _("You have successfully logged off. ");
 
-<?php	
 }
 elseif ($section=="section99"){
 
