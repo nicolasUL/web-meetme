@@ -7,6 +7,8 @@ include ("locale.php");
 session_start();
 
 getpost_ifset(array('confno','current_page','view','s','t','order','sens'));
+
+if (!isset($confno)) $confno = NULL;
 // this variable specifie the debug type (0 => nothing, 1 => sql result, 2 => boucle checking, 3 other value checking)
 $FG_DEBUG = 0;
 
@@ -200,7 +202,7 @@ if ($FG_DEBUG == 3) echo "<br>Sense clause : $sens";
                   <TD width="<?php echo $FG_TABLE_COL[$i][2]; ?>" align=left class="tableBody" style="PADDING-BOTTOM: 2px; PADDING-LEFT: 2px; PADDING-RIGHT: 2px; PADDING-TOP: 2px"> 
                     <strong> 
                     <?php if (strtoupper($FG_TABLE_COL[$i][4])=="SORT"){?>
-                    <a href="<?php echo $_SERVER[PHP_SELF]."?s=$s&t=$t&view=$view&current_page=$current_page&order=".$FG_TABLE_COL[$i][1]."&sens="; if ($sens=="ASC"){echo"DESC";}else{echo"ASC";};  if (strlen(confno)) echo "&confno=$confno";
+                    <a href="<?php echo $_SERVER['PHP_SELF']."?s=$s&t=$t&view=$view&current_page=$current_page&order=".$FG_TABLE_COL[$i][1]."&sens="; if ($sens=="ASC"){echo"DESC";}else{echo"ASC";};  if (isset($confno)) echo "&confno=$confno";
 					echo "\"";?>"> 
                     <span class="liens">
 		<?php 

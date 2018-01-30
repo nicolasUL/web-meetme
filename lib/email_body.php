@@ -8,8 +8,8 @@ function email_body($confDesc, $confOwner, $confno, $pin, $starttime, $endtime, 
 $starttime = strtotime($starttime);
 $endtime = strtotime($endtime);
  if (use24h()) {
-         $starttime = date("l d.m.Y H:i:s", $starttime);
-         $endtime = date("l d.m.Y H:i:s", $endtime);
+         $starttime = litteral_day(date("l", $starttime)).date(" d/m/Y H:i:s", $starttime);
+         $endtime = litteral_day(date("l", $endtime)).date(" d/m/Y H:i:s", $endtime);
  }
  else {
          $starttime = date("l M d, Y h:i:s A", $starttime);

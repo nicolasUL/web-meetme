@@ -6,7 +6,7 @@ include ("locale.php");
 
 session_start();
 
-getpost_ifset(array('DeleteNow', 'DeletebyId', 'sens', 'order', 'current_page'));
+getpost_ifset(array('confno', 'DeleteNow', 'DeletebyId', 'sens', 'order', 'current_page'));
 
 // this variable specifie the debug type (0 => nothing, 1 => sql result, 2 => boucle checking, 3 other value checking)
 $FG_DEBUG = 0;
@@ -240,7 +240,7 @@ if ($FG_DEBUG == 3) echo "<br>Nb_record_max : $nb_record_max";
                   <TD width="<?php echo $FG_TABLE_COL[$i][2]; ?>" align=middle class="tableBody" style="PADDING-BOTTOM: 2px; PADDING-LEFT: 2px; PADDING-RIGHT: 2px; PADDING-TOP: 2px"> 
                     <center><strong> 
                     <?php if (strtoupper($FG_TABLE_COL[$i][4])=="SORT"){?>
-                    <a href="<?php echo $_SERVER[PHP_SELF]."?s=1&t=0&current_page=$current_page&order=".$FG_TABLE_COL[$i][1]."&sens="; if ($sens=="ASC"){echo"DESC";}else{echo"ASC";} echo "&confno=$confno";
+                    <a href="<?php echo $_SERVER['PHP_SELF']."?s=1&t=0&current_page=$current_page&order=".$FG_TABLE_COL[$i][1]."&sens="; if ($sens=="ASC"){echo"DESC";}else{echo"ASC";} if(isset($confno)) echo "&confno=$confno";
 					echo "";?>"> 
                     <span class="liens"><?php } ?>
                     <?php echo $FG_TABLE_COL[$i][0]; ?> 

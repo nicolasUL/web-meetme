@@ -6,8 +6,12 @@ include ("locale.php");
 
 session_start();
 
-getpost_ifset(array(confno,pin));
+getpost_ifset(array('confno','pin'));
 $view = "Past";
+
+if (!isset($today)) $today = "";
+if (!isset($current_page)) $current_page = "";
+if (!isset($list)) $list = "";
 
 
 // this variable specifie the debug type (0 => nothing, 1 => sql result, 2 => boucle checking, 3 other value checking)

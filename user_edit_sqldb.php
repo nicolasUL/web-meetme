@@ -7,6 +7,9 @@ include ("locale.php");
 session_start();
 getpost_ifset(array('view','add','fname','lname','userPass','userEmail','userAdmin','s','t'));
 
+if(!isset($current_page)) $current_page = "";
+if(!isset($FG_CLAUSE)) $FG_CLAUSE = "";
+
 // this variable specifie the debug type (0 => nothing, 1 => sql result, 2 => boucle checking, 3 other value checking)
 $FG_DEBUG = 0;
 

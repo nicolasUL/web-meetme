@@ -1,6 +1,9 @@
 <?php
 $gui_title = GUI_TITLE;
 $gui_icon = GUI_ICON;
+if(!isset($logoff_sel)) $logoff_sel = "";
+if(!isset($s)) $s = 0;
+if(!isset($t)) $t = 0;
 $array = array (
 	_("Information"), 
 	"" => array(), 
@@ -17,17 +20,19 @@ $user_section = count($array);
 
 if(AUTH_TYPE=="sqldb")
 {
-if($_SESSION['privilege']== 'Admin')
-    {
-	    $array[_("User Management")] =  array(_("Add User"), _("Update User"));
-	    $user_add_section = "section" . $user_section . "0";
-	    $user_update_section = "section" . $user_section . "1";
-    }
-    else
-    {
-	    $array[_("User Management")] =  array(_("Update User"));
-	    $user_update_section = "section" . $user_section . "0";
-    }
+	if(isset($_SESSION['privilege'])) {
+		if($_SESSION['privilege']== 'Admin')
+    		{
+	    		$array[_("User Management")] =  array(_("Add User"), _("Update User"));
+	    		$user_add_section = "section" . $user_section . "0";
+	    		$user_update_section = "section" . $user_section . "1";
+    		}
+    		else
+    		{
+	    		$array[_("User Management")] =  array(_("Update User"));
+	    		$user_update_section = "section" . $user_section . "0";
+    		}
+	}
 }
 
 $report_sel = count($array);
@@ -38,11 +43,13 @@ $about_sel = count($array);
 $about_section = "section" . $about_sel;
 array_push($array,_("About"));
 
-if( (count($_SESSION) > 1) && $_SESSION['auth'])
-{
-	$logoff_sel = count($array);
-	$logoff_section = "section" . $logoff_sel;
-	array_push($array,_("Log-off"));
+if(isset($_SESSION['auth'])) {
+	if( (count($_SESSION) > 1) && $_SESSION['auth'])
+	{
+		$logoff_sel = count($array);
+		$logoff_section = "section" . $logoff_sel;
+		array_push($array,_("Log-off"));
+	}
 }
 $s = $s ? $s : 0;
 if(!isset($section))

@@ -7,6 +7,14 @@ include ("locale.php");
 session_start();
 getpost_ifset(array('view','add','update','remove','uuid','fname','lname','userName','userPass','phone','userEmail','userAdmin'));
 
+if(!isset($add)) $add = "";
+if(!isset($update)) $update = "";
+if(!isset($remove)) $remove = "";
+if(!isset($userAdmin)) $userAdmin = "";
+$conflict = "";
+$mode_list = "";
+$Error = "";
+
 // this variable specifie the debug type (0 => nothing, 1 => sql result, 2 => boucle checking, 3 other value checking)
 $FG_DEBUG = 0;
 
@@ -35,6 +43,7 @@ $FG_LIMITE_DISPLAY=30;
 $FG_LIMITE_DISPLAY_BLANK_LINE=5;
 
 // Number of column in the html table
+$FG_NB_TABLE_COL=count($FG_TABLE_COL);
 
 //This variable will store the total number of column
 $FG_TOTAL_TABLE_COL = $FG_NB_TABLE_COL;

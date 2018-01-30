@@ -6,6 +6,8 @@ include ("locale.php");
 session_start();
 getpost_ifset(array('confno', 'pin'));
 
+if (!isset($bookId)) $bookId = "";
+
 if (!is_numeric(substr($confno, 0, 1)))
 	$confno = 0;
 
@@ -35,10 +37,10 @@ include ("./lib/header.php");
 			<div class="fedora-corner-tl">&nbsp;</div>
 			<div id="fedora-content">
 <center>
-<h1><?php  echo "Listen to previously recorded conferences"; ?></h1>
+<h1><?php  echo _("Listen to previously recorded conferences"); ?></h1>
 
 <h2><?php print _("Please enter the conference number and pin").":"; ?></h2>
-<FORM METHOD=POST  NAME="WMLogon" ACTION=<?php echo $_SERVER[PHP_SELF]; ?>>
+<FORM METHOD=POST  NAME="WMLogon" ACTION=<?php echo $_SERVER['PHP_SELF']; ?>>
 <INPUT TYPE="hidden" NAME="current_page" value=0>
         <table class="bar-status" width="35%" border="0" cellspacing="1" cellpadding="2" align="center">
                 <tbody>
@@ -61,7 +63,7 @@ include ("./lib/header.php");
 		<td class="bar-search" align="left" bgcolor="#555577"> </td>
 		<INPUT TYPE="hidden" NAME="bookId" value=<?php echo $bookId; ?>>
 		<td class="bar-search" align="center" bgcolor="#cddeff">
-		<input tabindex="102" type="Submit"  name="Find" align="top" border="0" value="Find "/> </td></tr>
+		<input tabindex="102" type="Submit"  name="Find" align="top" border="0" value="<?php echo _("Find"); ?>"/> </td></tr>
         </tbody></table>
 </FORM>
 <script language="javascript">
@@ -69,7 +71,7 @@ include ("./lib/header.php");
 document.WMLogon.confno.focus()
 //-->
 </script>
-<iframe name="superframe" src="conf_listen.php?confno=<?php echo "$_SESSION[confno]&pin=$_SESSION[pin]"; ?>" BGCOLOR=white      width=750 height=400 marginWidth=0 marginHeight=0  frameBorder=0  scrolling=yes>
+<iframe name="superframe" src="conf_listen.php?confno=<?php echo $_SESSION['confno']."&pin=".$_SESSION['pin']; ?>" BGCOLOR=white      width=750 height=400 marginWidth=0 marginHeight=0  frameBorder=0  scrolling=yes>
 </iframe>
 
 </center>

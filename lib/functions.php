@@ -33,6 +33,7 @@ function getConfDate() {
 
 
 function arraytostring ($array) {
+	$arraystring = "";
 	foreach ($array as $item=>$value) {
 		$arraystring .= "$value";
 	}
@@ -104,5 +105,18 @@ function use24h(){
 	else {
                 return 1;
 	}
+}
+
+function litteral_day($day)
+{
+	switch($day) {
+	  	case 'Monday': $litteral_day = _("Monday"); break;
+	  	case 'Tuesday': $litteral_day = _("Tuesday"); break;
+	  	case 'Wednesday': $litteral_day = _("Wednesday"); break;
+	  	case 'Thursday': $litteral_day = _("Thursday"); break;
+	  	case 'Friday': $litteral_day = _("Friday"); break;
+	  	case 'Saturday': $litteral_day = _("Saturday"); break;
+	  	case 'Sunday': $litteral_day = _("Sunday"); break; }
+	return $litteral_day;
 }
 ?>

@@ -14,7 +14,29 @@ $dowork = false;
 
 if ( !isset($mode_list))
 	$mode_list = "";
+
 $recur = 0;
+$error = NULL;
+$em_rIntv = "";
+$em_sqNo = "";
+if(!isset($add)) $add = NULL;
+if(!isset($dateReq)) $dateReq = "";
+if(!isset($conflict)) $conflict = NULL;
+if(!isset($today)) $today = "";
+if(!isset($bookId)) $bookId = "";
+if(!isset($current_page)) $current_page = "";
+if(!isset($updateSeries)) $updateSeries = "";
+if(!isset($PHPSESSID)) $PHPSESSID = "";
+if(!isset($Hour)) $Hour = 0;
+if(!isset($Min)) $Min = 0;
+if(!isset($month)) $month = 0;
+if(!isset($day)) $day = 0;
+if(!isset($year)) $year = 0;
+if(!isset($ConfHour)) $ConfHour = "";
+if(!isset($ConfMin)) $ConfMin = "";
+if(!isset($opts)) $opts = NULL;
+if(!isset($email)) $email = NULL;
+
 
 getpost_ifset(array('confno','pin','adminpin','confOwner','confDesc','Hour','Min','month','day','year','AMPM','ConfHour','ConfMin','confdate','maxUser','add','bookId','update','recur','recurLbl','recurPrd','adminopts','opts','updateSeries','Extend'));
 getpost_ifset(array('fname', 'lname', 'email', 'phone', 'nopass'));
@@ -211,7 +233,7 @@ if (isset($add)){
 	if (!isset($error)){
         if ($conflict != 0){
 	   $error = _("Your conference is not unique.  Please use a different start time or conference ID");
-	   } else {
+	   } else {	   
 	   $stemp = (strtotime($st));
 	   $etemp = (strtotime($et));
    	   $starttime = $st;
@@ -221,7 +243,7 @@ if (isset($add)){
 	   $startHour = substr($starttime, 10, 18); 
 	   $endHour = substr($endtime, 10, 18); 
 
-	   if (!$recurInt)
+	   if (!isset($recurInt))
 		$recurInt = 0;
 	
 	   for ($i=0; $i < intval($recurPrd); $i++){
@@ -254,7 +276,8 @@ if (isset($add)){
 		{
 			$em_bookId = $bookId;
 		}
-		$invitees = count($email);
+		if(!isset($email)) $invitees = 0;
+		else $invitees = count($email);
 		for($j=0;$j < $invitees; $j++)
 		{
 			if(strlen(trim($email[$j])))
@@ -315,17 +338,17 @@ if (isset($update)){
 
 	//Only update future conferences
 	$searchTime = $row['starttime'];
-	$dateReq = $row['dateReq'];
+	$dateReq = $row['datereq'];
 
 	$query = "SELECT bookId,starttime,sequenceNo,recurInterval FROM booking WHERE confno ='$searchconfno' AND dateReq ='$dateReq' AND starttime >='$searchTime' ORDER BY sequenceNo";
 	$result = $db->query($query);
 	$i=0;
 	while ( $row = $result->fetchRow(MDB2_FETCHMODE_ASSOC))
 	{
-		$em_bookId[$i] = $row['bookId'];
+		$em_bookId[$i] = $row['bookid'];
 		$em_sT[$i] = $row['starttime'];
-		$em_sqNo[$i] = intval($row['sequenceNo']);
-		$em_rIntv[$i++] = intval($row['recurInterval']);
+		$em_sqNo[$i] = intval($row['sequenceno']);
+		$em_rIntv[$i++] = intval($row['recurinterval']);
 	}
 	$recurInt = $em_rIntv[0];
 	$recurPrd = intval($result->numRows());
@@ -516,8 +539,9 @@ if (isset($Extend)){
 	$result = $db->query($query);
 
 	$recordset = $result->fetchRow(MDB2_FETCHMODE_ASSOC);
-	$bookId=$recordset[bookId];
-	$endtime=$recordset[endtime];
+	$bookId = $recordset['bookid'];
+	$endtime = $recordset['endtime'];
+
 
         $FG_EDITION_CLAUSE=" bookId='$bookId' ";
 
@@ -658,7 +682,7 @@ function ClientMailer()
 		<?php
 		if (MAILER == "SERVER") {
 		?>
-			<textarea rows=6 cols=50 name="body">
+			<textarea rows=6 cols=50 name="body"></textarea>
 		<?php
 		}
 		else
@@ -667,8 +691,8 @@ function ClientMailer()
 			<input type=hidden id="_Body" value="<?php email_body($confDesc, $confOwner, $confno, $pin, $starttime, $endtime, $maxUser, $recurPrd, TRUE); ?>">
 			<textarea rows=18 cols=52 readonly>
 		<?php
-		}
 		email_body($confDesc, $confOwner, $confno, $pin, $starttime, $endtime, $maxUser, $recurPrd, FALSE);?></textarea>
+		<?php } ?>
 		</td>
                 </tr>
                 <tr>

@@ -28,9 +28,15 @@ if (!is_numeric(substr($t, 0, 1))) {
 if (!isset($confno))
 	$confno = "";
 
+if(!isset($order)) $order="";
+if(!isset($sens)) $sens="";
+if(!isset($current_page)) $current_page="";
+if(!isset($PHPSESSID)) $PHPSESSID="";
+
 
 if (defined('AUTH_TYPE')){
 	getpost_ifset(array('AUTH_USER', 'AUTH_PW'));
+	if(!isset($AUTH_USER)) $AUTH_USER = "";
 	session_set_cookie_params(0, '/' );
 	session_start();
 
@@ -112,7 +118,8 @@ getpost_ifset('confno'); ?>
 		<td class="bar-search" align="left" bgcolor="#555577"> </td>
 
 			<td class="bar-search" align="center" bgcolor="#cddeff">
-				<input type="image"  name="image16" align="top" border="0" src="images/button-search.gif" />
+				<?php if ( $locale = "fr_FR" ) { ?> <input type="image"  name="image16" align="top" border="0" src="images/button-search_fr.gif" />
+				<?php } else {?><input type="image"  name="image16" align="top" border="0" src="images/button-search.gif" /><?php } ?>
 
 			</td>
 	</tr>
@@ -566,7 +573,7 @@ $tmp=intval(date("Y", $starttime));
 			echo "<td><input type=text name=lname[] size=12 value=\"$last_name\"</td>";
 			echo "<td><input type=text name=email[] size=22 value=\"$email\"</td>";
 			echo "<td><input type=text name=phone[] size=15 value=\"$telephone\"</td>";
-			echo "<td><button class=warn onclick=\"deleteCurrentRow(this)\">Delete</button></td>";
+			echo "<td><button class=warn onclick=\"deleteCurrentRow(this)\">"._("Delete")."</button></td>";
 			echo "</tr>";
 		}
 	}
@@ -578,8 +585,8 @@ $tmp=intval(date("Y", $starttime));
 
 		<tr>
 		<td class="bar-search" align="left" bgcolor="#555577"> </td>
-		<INPUT TYPE="hidden" NAME="bookId" value=<?php echo $bookId; ?>>
-		<INPUT TYPE="hidden" NAME="dateReq" value="<?php echo $dateReq; ?>">
+		<INPUT TYPE="hidden" NAME="bookId" value=<?php if(isset($bookId)) echo $bookId; ?>>
+		<INPUT TYPE="hidden" NAME="dateReq" value="<?php if(isset($dateReq)) echo $dateReq; ?>">
 
 			<td class="bar-search" align="center" bgcolor="#cddeff">
 	<?php if ($bookId) { ?>
@@ -629,7 +636,8 @@ document.WMAdd.confDesc.focus()
 		<td class="bar-search" align="left" bgcolor="#555577"> </td>
 
 			<td class="bar-search" align="center" bgcolor="#cddeff">
-				<input type="image"  name="image16" align="top" border="0" src="images/button-search.gif" />
+				<?php if ( $locale = "fr_FR" ) { ?> <input type="image"  name="image16" align="top" border="0" src="images/button-search_fr.gif" />
+				<?php } else {?><input type="image"  name="image16" align="top" border="0" src="images/button-search.gif" /><?php } ?>
 
 			</td>
 	</tr>
@@ -673,7 +681,8 @@ document.WMDel.confno.focus()
 		<td class="bar-search" align="left" bgcolor="#555577"> </td>
 
 			<td class="bar-search" align="center" bgcolor="#cddeff">
-				<input type="image"  name="image16" align="top" border="0" src="images/button-search.gif" />
+				<?php if ( $locale = "fr_FR" ) { ?> <input type="image"  name="image16" align="top" border="0" src="images/button-search_fr.gif" />
+				<?php } else {?><input type="image"  name="image16" align="top" border="0" src="images/button-search.gif" /><?php } ?>
 
 			</td>
 	</tr>
@@ -701,7 +710,10 @@ document.WMDel.confno.focus()
 <?php  } else {
 	$view="Future"; ?>
 	<center><?php print _("Select the Conference that you want to Modify"); ?>
-<?php  } ?>
+<?php  } 
+
+if(!isset($current_page)) $current_page="";
+?>
 
 <FORM METHOD=POST NAME="WMCPF" ACTION="conf_update.php?s=<?php echo "$s&t=$t&order=starttime&sens=ASC&current_page=$current_page&view=$view"; ?>" target="superframe">
 <INPUT TYPE="hidden" NAME="current_page" value=0>
@@ -721,7 +733,8 @@ document.WMDel.confno.focus()
 		<td class="bar-search" align="left" bgcolor="#555577"> </td>
 
 			<td class="bar-search" align="center" bgcolor="#cddeff">
-				<input type="image"  name="image16" align="top" border="0" src="images/button-search.gif" />
+				<?php if ( $locale = "fr_FR" ) { ?> <input type="image"  name="image16" align="top" border="0" src="images/button-search_fr.gif" />
+				<?php } else {?><input type="image"  name="image16" align="top" border="0" src="images/button-search.gif" /><?php } ?>
 
 			</td>
 	</tr>
@@ -748,6 +761,7 @@ document.WMCPF.confno.focus()
 &nbsp;
 <br/>
 <center><?php print _("Enter the details about the user to add"); ?>
+
 <FORM METHOD=POST NAME="WMAdd" ACTION="user_add_<?php echo AUTH_TYPE; ?>.php?&s=3&t=0&order=<?php echo $order?>&sens=<?php echo $sens?>&current_page=<?php echo $current_page?>" target="superframe">
 <INPUT TYPE="hidden" NAME="current_page" value=0>
 	<table class="bar-status" width="60%" border="0" cellspacing="1" cellpadding="2" align="center">
@@ -757,7 +771,7 @@ document.WMCPF.confno.focus()
                                 <font face="verdana" size="1" color="#ffffff"><b>&nbsp;&nbsp;<?php print _("First Name"); ?> :</b></font>
                         </td>
                         <td class="bar-search" align="center" bgcolor="#acbdee">
-                        <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td>&nbsp;&nbsp;<INPUT TYPE="text" NAME="fname" value="<?php print $first_name ?>"></td>
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td>&nbsp;&nbsp;<INPUT TYPE="text" NAME="fname" value="<?php if(isset($first_name)) print $first_name ?>"></td>
                         </tr></table></td>
                 </tr>
                 <tr>
@@ -765,7 +779,7 @@ document.WMCPF.confno.focus()
                                 <font face="verdana" size="1" color="#ffffff"><b>&nbsp;&nbsp;<?php print _("Last Name"); ?> :</b></font>
                         </td>
                         <td class="bar-search" align="center" bgcolor="#acbdee">
-                        <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td>&nbsp;&nbsp;<INPUT TYPE="text" NAME="lname" value="<?php print $last_name ?>"></td>
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td>&nbsp;&nbsp;<INPUT TYPE="text" NAME="lname" value="<?php if(isset($last_name)) print $last_name ?>"></td>
                         </tr></table></td>
                 </tr>
                 <tr>
@@ -774,7 +788,7 @@ document.WMCPF.confno.focus()
                                 <font face="verdana" size="1" color="#ffffff"><b>&nbsp;&nbsp;<?php print _("User Email"); ?> :</b></font>
                         </td>
                         <td class="bar-search" align="center" bgcolor="#acbdee">
-                        <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td>&nbsp;&nbsp;<INPUT TYPE="text" NAME="userEmail" value="<?php print $email ?>"></td>
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td>&nbsp;&nbsp;<INPUT TYPE="text" NAME="userEmail" value="<?php if(isset($email)) print $email ?>"></td>
                         </tr></table></td>
                 </tr>
                 <tr>
@@ -782,7 +796,7 @@ document.WMCPF.confno.focus()
                                 <font face="verdana" size="1" color="#ffffff"><b>&nbsp;&nbsp;<?php print _("Telephone"); ?> :</b></font>
                         </td>
                         <td class="bar-search" align="center" bgcolor="#acbdee">
-                        <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td>&nbsp;&nbsp;<INPUT TYPE="text" NAME="phone" value="<?php print $telephone ?>"></td>
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td>&nbsp;&nbsp;<INPUT TYPE="text" NAME="phone" value="<?php if(isset($telephone)) print $telephone ?>"></td>
                         </tr></table></td>
                 </tr>
 
@@ -791,7 +805,7 @@ document.WMCPF.confno.focus()
 				<font face="verdana" size="1" color="#ffffff"><b>&nbsp;&nbsp;<?php print _("Password"); ?> :</b></font>
 			</td>
 			<td class="bar-search" align="center" bgcolor="#acbdee">
-			<table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td>&nbsp;&nbsp;<INPUT TYPE="password" NAME="userPass" value="<?php print $userPass ?>"></td>
+			<table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td>&nbsp;&nbsp;<INPUT TYPE="password" NAME="userPass" value="<?php if(isset($userPass)) print $userPass ?>"></td>
 			</tr></table></td>
 		</tr>
 <?php
@@ -803,7 +817,7 @@ if($_SESSION['privilege']== 'Admin')
 				<font face="verdana" size="1" color="#ffffff"><b>&nbsp;&nbsp;<?php print _("Is Admin")."?"; ?> :</b></font>
 			</td>
 			<td class="bar-search" align="center" bgcolor="#acbdee">
-			<table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td>&nbsp;&nbsp;<INPUT TYPE="radio" NAME="userAdmin" value="0" <?php if(!$userAdmin) echo 'checked'; ?>> <?php print _("No"); ?><br />&nbsp;&nbsp;<INPUT TYPE="radio" NAME="userAdmin" value="1" <?php if($userAdmin) echo 'checked'; ?>> <?php print _("Yes"); ?></td>
+			<table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td>&nbsp;&nbsp;<INPUT TYPE="radio" NAME="userAdmin" value="0" <?php if(!isset($userAdmin)) echo 'checked'; ?>> <?php print _("No"); ?><br />&nbsp;&nbsp;<INPUT TYPE="radio" NAME="userAdmin" value="1" <?php if(isset($userAdmin)) echo 'checked'; ?>> <?php print _("Yes"); ?></td>
 			</tr></table></td>
 		</tr>
 <?php
@@ -815,7 +829,7 @@ if($_SESSION['privilege']== 'Admin')
 		<td class="bar-search" align="left" bgcolor="#555577"> </td>
 
 			<td class="bar-search" align="center" bgcolor="#cddeff">
-	<?php if ($userEmail) { ?>
+	<?php if (isset($userEmail)) { ?>
 				<input type="Submit"  name="update" align="top" border="0" value="Update User"/>
                                 <input type="Submit"  name="remove" align="top" border="0" value="Remove User"/>
 

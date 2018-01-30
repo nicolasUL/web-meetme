@@ -119,7 +119,7 @@ function contact(){
 
 	<tr><td span=2 ><br><h2><?php print _("Developer Team"); ?> ...</h2></td></tr>
 	<tr>
-    	<td><a href="mailto:<?=$myemail?>">Arezqui Bela&iuml;d
+    	<td><a href="mailto:">Arezqui Bela&iuml;d
       	</a> : areski (no@spam) gmail (dot) com</td>
     	<td><a href="mailto:dan_austin@phoenix.com">Dan Austin
       	</a></td>
@@ -134,7 +134,7 @@ function contact(){
 	<td><h2><?php print _("User details ..."); ?></h2></td>
 	</tr>
 	<tr>
-	<td> <?php print _("Currently logged on as"); ?> <?php echo $_SESSION['userid']?> (<?php echo $_SESSION['privilege']?>) <?php if (isset ($_SESSION['groups'])) print _("and a member of"); ?> <?php if (isset ($_SESSION['groups'])) echo $_SESSION['groups']?></td>
+	<td> <?php if(isset($_SESSION['userid'])) { print _("Currently logged on as"); ?> <?php echo $_SESSION['userid']?> (<?php echo $_SESSION['privilege']?>) <?php if (isset ($_SESSION['groups'])) print _("and a member of"); ?> <?php if (isset ($_SESSION['groups'])) echo $_SESSION['groups']; } ?></td>
 	</tr>
 	</table>
 <br><br>

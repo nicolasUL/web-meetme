@@ -1,6 +1,9 @@
 <?PHP
 include ("./lib/defines.php");
 include ("locale.php");
+
+if(!isset($_REQUEST["confno"])) $_REQUEST["confno"]="";
+
 ?>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
     <head>

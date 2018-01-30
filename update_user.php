@@ -5,6 +5,14 @@ include ("./lib/database.php");
 include ("locale.php");
 
 getpost_ifset(array('s', 't', 'uuid'));
+
+if(!isset($s)) $s="";
+if(!isset($t)) $t="";
+if(!isset($order)) $order="";
+if(!isset($sens)) $sens="";
+if(!isset($current_page)) $current_page="";
+if(!isset($AUTH_USER)) $AUTH_USER="";
+
                                                                                                                              
 if (defined('AUTH_TYPE')){
         getpost_ifset(array('AUTH_USER', 'AUTH_PW'));
