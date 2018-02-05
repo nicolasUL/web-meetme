@@ -80,6 +80,16 @@ class userSec {
                         		$_SESSION['clientid']=$uid;
 				}
 			break;
+
+			case "CAS":
+				$expires = time() + AUTH_TIMEOUT*3600;
+				$_SESSION['auth']="true";
+				$_SESSION['privilege']="User";
+				$_SESSION['lifetime']=$expires;
+				if ($_SESSION['userid'] == CAS_ADMIN){
+                        		$_SESSION['privilege']="Admin";
+                		}
+			break;
 		}
 
 

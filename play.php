@@ -23,7 +23,7 @@ if (($_SESSION['privilege'] == "Admin" || $row[0] == $_SESSION['userid'])) {
 		$content_len = filesize($playfile);
 		header("Content-Length: ".$content_len);
 		header("Content-type: $mimetype");
-		header('Content-Disposition: inline; filename=$file');
+		header('Content-Disposition: inline; filename='.$file);
 		readfile($playfile);
 	}
 }

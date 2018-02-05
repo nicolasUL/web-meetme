@@ -48,11 +48,15 @@ $FG_TABLE_ROW_COLOR_ADMIN = "#FCCDCA";
 
 
 // Comment out the following lines to disable authentication
-define ("AUTH_TYPE", "adLDAP"); // adLDAP or sqldb 
+define ("AUTH_TYPE", "adLDAP"); // adLDAP, sqldb or CAS
 define ("ADMIN_GROUP", "Domain Admins");
 define ("AUTH_TIMEOUT", "3");	//Hours
+
+if(AUTH_TYPE!="CAS")
 include (LIBDIR.AUTH_TYPE.".php");
 
+// CAS Server
+define ("CAS_SERVER","");
 
 //Database tables
 define ("DB_TABLECDR", "cdr");

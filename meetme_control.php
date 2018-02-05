@@ -33,32 +33,60 @@ if(!isset($sens)) $sens="";
 if(!isset($current_page)) $current_page="";
 if(!isset($PHPSESSID)) $PHPSESSID="";
 
-
-if (defined('AUTH_TYPE')){
-	getpost_ifset(array('AUTH_USER', 'AUTH_PW'));
-	if(!isset($AUTH_USER)) $AUTH_USER = "";
+if (AUTH_TYPE=="CAS") {
+	$AUTH_USER = '';
+	$AUTH_PW = '';
 	session_set_cookie_params(0, '/' );
 	session_start();
 
-	if (isset($_SESSION['auth'])) {
-        	if (($_SESSION['lifetime']) <= time()){
-                	unset($_SESSION['auth']);
-               	unset($_SESSION['privilege']);
-                	unset($_SESSION['userid']);
-                	unset($AUTH_USER);
-                	unset($AUTH_PW);
-        	}
-	} 
-
-	if ( !isset($_SESSION['auth']) && $AUTH_USER != NULL && $AUTH_PW != NULL ){
-		$user = new userSec();
-		$user -> authenticate($AUTH_USER, $AUTH_PW);
-		$user -> isAdmin($AUTH_USER);
+	if (!isset($_SESSION['authenticated'])){
+		header("Location:".WEBROOT."login.php");
 	}
 
-	if (!isset($_SESSION['auth']))
-		$section="section99";
+	if (isset($_GET['action']) && $_GET['action']=="logout") {
+		require_once("./CAS/CAS.php");
+		phpCAS::client(CAS_VERSION_2_0,CAS_SERVER,443,'');
+		phpCAS::logoutWithRedirectService(WEBROOT);
+	}
 
+	if (isset($_SESSION['authenticated'] )){
+                $user = new userSec();
+                $user -> authenticate($AUTH_USER, $AUTH_PW);
+        }
+
+        if (!isset($_SESSION['auth'])) {
+                $section="section99";
+        }
+
+}
+
+else {
+
+	if (defined('AUTH_TYPE')){
+		getpost_ifset(array('AUTH_USER', 'AUTH_PW'));
+		if(!isset($AUTH_USER)) $AUTH_USER = "";
+		session_set_cookie_params(0, '/' );
+		session_start();
+
+		if (isset($_SESSION['auth'])) {
+        		if (($_SESSION['lifetime']) <= time()){
+              	  	unset($_SESSION['auth']);
+               		unset($_SESSION['privilege']);
+                		unset($_SESSION['userid']);
+                		unset($AUTH_USER);
+                		unset($AUTH_PW);
+        		}
+		} 
+
+		if ( !isset($_SESSION['auth']) && $AUTH_USER != NULL && $AUTH_PW != NULL ){
+			$user = new userSec();
+			$user -> authenticate($AUTH_USER, $AUTH_PW);
+			$user -> isAdmin($AUTH_USER);
+		}
+
+		if (!isset($_SESSION['auth']))
+			$section="section99";
+	}
 }
 include ("./lib/header.php");
 include ("./lib/leftnav.php");
@@ -128,7 +156,7 @@ getpost_ifset('confno'); ?>
 </center>
 
 <center>
-<iframe name="superframe" src="conf_control.php" BGCOLOR="#FFFFFF"      width=750 height=500 marginWidth=0 marginHeight=0  frameBorder=0  scrolling=auto>
+<iframe name="superframe" src="conf_control.php" BGCOLOR="#FFFFFF"      width=850 height=500 marginWidth=0 marginHeight=0  frameBorder=0  scrolling=auto>
 
 </iframe>
 </center> 
@@ -164,7 +192,7 @@ document.WMMon.confno.focus()
 
 
 <center>
-<iframe name="superframe" src="<?php echo "call_operator.php?atmenu=operator&stitle=Make+Outbound+Call";?>" BGCOLOR=white      width=750 height=450 marginWidth=0 marginHeight=0  frameBorder=0  scrolling=auto>
+<iframe name="superframe" src="<?php echo "call_operator.php?atmenu=operator&stitle=Make+Outbound+Call";?>" BGCOLOR=white      width=850 height=450 marginWidth=0 marginHeight=0  frameBorder=0  scrolling=auto>
 
 </iframe>
 </center>
@@ -265,7 +293,7 @@ else
 
 <FORM METHOD=POST NAME="WMAdd" ACTION="conf_add.php?&s=1&t=2&order=<?php echo "$order&sens=$sens&current_page=$current_page";?>" target="superframe">
 <INPUT TYPE="hidden" NAME="current_page" value=0>
-	<table class="bar-status" width="750" border="0" cellspacing="1" cellpadding="2" align="center">
+	<table class="bar-status" width="850" border="0" cellspacing="1" cellpadding="2" align="center">
 		<tbody>
 		<tr>
 		<td align="left" bgcolor="#000033" width="20%">                     
@@ -608,7 +636,7 @@ document.WMAdd.confDesc.focus()
 </script>
 
 <br>
-<iframe name="superframe" src="conf_add.php" BGCOLOR=white  width="750" height=500 marginWidth=0 marginHeight=0  frameBorder=0  scrolling=auto >
+<iframe name="superframe" src="conf_add.php" BGCOLOR=white  width="850" height=500 marginWidth=0 marginHeight=0  frameBorder=0  scrolling=auto >
 </iframe>
 
 
@@ -652,7 +680,7 @@ document.WMDel.confno.focus()
 </center>
 
 <center>
-<iframe name="superframe" src="conf_delete.php" BGCOLOR=white      width=750 height=500 marginWidth=0 marginHeight=0  frameBorder=0  scrolling=auto>
+<iframe name="superframe" src="conf_delete.php" BGCOLOR=white      width=850 height=500 marginWidth=0 marginHeight=0  frameBorder=0  scrolling=auto>
 
 </iframe>
 </center>
@@ -691,7 +719,7 @@ document.WMDel.confno.focus()
 </center>
 
 <center>
-<iframe name="superframe" src="conf_control.php" BGCOLOR=white      width=750 height=500 marginWidth=0 marginHeight=0  frameBorder=0  scrolling=auto>
+<iframe name="superframe" src="conf_control.php" BGCOLOR=white      width=850 height=500 marginWidth=0 marginHeight=0  frameBorder=0  scrolling=auto>
 
 </iframe>
 </center>
@@ -743,7 +771,7 @@ if(!isset($current_page)) $current_page="";
 </center>
 
 <center>
-<iframe name="superframe" src="conf_update.php?s=<?php echo "$s&t=$t&view=$view"; ?>" BGCOLOR=white      width=750 height=500 marginWidth=0 marginHeight=0  frameBorder=0  scrolling=auto>
+<iframe name="superframe" src="conf_update.php?s=<?php echo "$s&t=$t&view=$view"; ?>" BGCOLOR=white      width=850 height=500 marginWidth=0 marginHeight=0  frameBorder=0  scrolling=auto>
 
 </iframe>
 <script language="javascript">
@@ -847,7 +875,7 @@ document.WMAdd.confDesc.focus()
 </script>
 
 </center>
-<iframe name="superframe" src="user_add_<?php echo AUTH_TYPE; ?>.php" BGCOLOR=white  width=750 height=500 marginWidth=0 marginHeight=0  frameBorder=0  scrolling=auto>
+<iframe name="superframe" src="user_add_<?php echo AUTH_TYPE; ?>.php" BGCOLOR=white  width=850 height=500 marginWidth=0 marginHeight=0  frameBorder=0  scrolling=auto>
 
 </iframe>
 <center>
@@ -861,7 +889,7 @@ document.WMAdd.confDesc.focus()
 <center><?php print _("Select the user that you want to edit"); ?>
 </center>
 <center>
-<iframe name="superframe" src="user_edit_<?php echo AUTH_TYPE; ?>.php?&s=3&t=0&order=<?php echo $order?>&sens=<?php echo $sens?>&current_page=<?php echo $current_page?>" BGCOLOR=white      width=750 height=500 marginWidth=0 marginHeight=0  frameBorder=0  scrolling=auto>
+<iframe name="superframe" src="user_edit_<?php echo AUTH_TYPE; ?>.php?&s=3&t=0&order=<?php echo $order?>&sens=<?php echo $sens?>&current_page=<?php echo $current_page?>" BGCOLOR=white      width=850 height=500 marginWidth=0 marginHeight=0  frameBorder=0  scrolling=auto>
 
 </iframe>
 </center>
@@ -873,7 +901,7 @@ document.WMAdd.confDesc.focus()
 <center><?php print _("Select the date to view a Report"); ?>
 </center>
 <center>
-<iframe name="superframe" src="daily.php?" BGCOLOR=white      width=750 height=600 marginWidth=0 marginHeight=0  frameBorder=0  scrolling=auto>
+<iframe name="superframe" src="daily.php?" BGCOLOR=white      width=850 height=600 marginWidth=0 marginHeight=0  frameBorder=0  scrolling=auto>
 
 </iframe>
 </center>
@@ -890,6 +918,12 @@ document.WMAdd.confDesc.focus()
 	unset($AUTH_PW);
 	echo _("You have successfully logged off. ");
 
+	// CAS disconnect
+	if (AUTH_TYPE=="CAS") { ?>
+		<script language=javascript>
+		setTimeout("location.href='meetme_control.php?action=logout'", 600);
+		</script>
+<?php	}
 }
 elseif ($section=="section99"){
 

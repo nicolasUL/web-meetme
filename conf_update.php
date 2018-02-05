@@ -25,7 +25,7 @@ $FG_TABLE_COL[]=array (_("Conference Name"), "pin", "25%", "left", "", "10");
 $FG_TABLE_COL[]=array (_("Starts"), "starttime", "20%", "left", "SORT", "30");
 $FG_TABLE_COL[]=array (_("Ends"), "endtime", "20%", "left", "", "30");
 $FG_TABLE_COL[]=array (_("Participants"), "maxUser", "10%", "left", "", "4");
-
+$FG_TABLE_COL[]=array (_("Conference Owner"), "confOwner", "10%", "left", "", "");
 
 
 $FG_TABLE_DEFAULT_ORDER = "starttime";
@@ -246,7 +246,7 @@ if ($FG_DEBUG == 3) echo "<br>Sense clause : $sens";
                		 	<TR bgcolor="<?php echo $FG_TABLE_ALTERNATE_ROW_COLOR[$ligne_number%2]; ?>"  onMouseOver="bgColor='#C4FFD7'" onMouseOut="bgColor='<?php echo $FG_TABLE_ALTERNATE_ROW_COLOR[$ligne_number%2]; ?>'"> 
 			<?php 
 			}
-			for($i=0;$i<$FG_NB_TABLE_COL;$i++)
+			for($i=0;$i<$FG_NB_TABLE_COL-1;$i++)
 			{
 				$record_display = $recordset[$i];
 				if($i == 2 || $i ==3)
@@ -299,6 +299,8 @@ if ($FG_DEBUG == 3) echo "<br>Sense clause : $sens";
 				<?php } ?>		 
 				   	<?php } ?>	
 				   		 </TD>  
+                                        <TD width="<?php echo $FG_TABLE_COL[7][2]?>" vAlign=middle align="<?php echo $FG_TABLE_COL[7][3]; ?>" class=tableBody><?php echo stripslashes($recordset[7]); ?></TD>
+
 					</TR>
 				<?php
 					 }
