@@ -55,8 +55,9 @@ define ("AUTH_TIMEOUT", "3");	//Hours
 if(AUTH_TYPE!="CAS")
 include (LIBDIR.AUTH_TYPE.".php");
 
-// CAS Server
-define ("CAS_SERVER","");
+// CAS Authentification
+define ("CAS_SERVER",""); //server address
+define('CAS_ADMIN', serialize(array('login1','login2'))); //logins with Admin profile
 
 //Database tables
 define ("DB_TABLECDR", "cdr");

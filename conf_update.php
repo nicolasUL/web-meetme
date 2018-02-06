@@ -299,7 +299,7 @@ if ($FG_DEBUG == 3) echo "<br>Sense clause : $sens";
 				<?php } ?>		 
 				   	<?php } ?>	
 				   		 </TD>  
-                                        <TD width="<?php echo $FG_TABLE_COL[7][2]?>" vAlign=middle align="<?php echo $FG_TABLE_COL[7][3]; ?>" class=tableBody><?php echo stripslashes($recordset[7]); ?></TD>
+                                        <TD width="<?php echo $FG_TABLE_COL[5][2]?>" vAlign=middle align="<?php echo $FG_TABLE_COL[5][3]; ?>" class=tableBody><?php echo stripslashes($recordset[7]); ?></TD>
 
 					</TR>
 				<?php

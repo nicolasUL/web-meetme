@@ -8,6 +8,8 @@ session_start();
 
 getpost_ifset(array('confno', 'DeleteNow', 'DeletebyId', 'sens', 'order', 'current_page'));
 
+if(!isset($FG_CLAUSE))  $FG_CLAUSE = NULL;
+
 // this variable specifie the debug type (0 => nothing, 1 => sql result, 2 => boucle checking, 3 other value checking)
 $FG_DEBUG = 0;
 
@@ -295,7 +297,7 @@ if ($FG_DEBUG == 3) echo "<br>Nb_record_max : $nb_record_max";
                  		 <TD width="<?php echo $FG_TABLE_COL[$i][2]; ?>" vAlign=middle align="<?php echo $FG_TABLE_COL[$i][3]; ?>" class=tableBody><?php echo stripslashes($record_display); ?></TD>
 		<?php }
 				   	 } ?>	
-                 		 <TD width="<?php echo $FG_TABLE_COL[6][2]; ?>" vAlign=middle align="<?php echo $FG_TABLE_COL[6][3]; ?>" class=tableBody><?php echo stripslashes($recordset[6]); ?></TD>
+                 		 <TD width="<?php echo $FG_TABLE_COL[5][2]; ?>" vAlign=middle align="<?php echo $FG_TABLE_COL[5][3]; ?>" class=tableBody><?php echo stripslashes($recordset[6]); ?></TD>
 					</TR>
 				<?php
 					 }//foreach ($list as $recordset)

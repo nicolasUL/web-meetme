@@ -86,9 +86,12 @@ class userSec {
 				$_SESSION['auth']="true";
 				$_SESSION['privilege']="User";
 				$_SESSION['lifetime']=$expires;
-				if ($_SESSION['userid'] == CAS_ADMIN){
-                        		$_SESSION['privilege']="Admin";
-                		}
+				$cas_admin = unserialize (CAS_ADMIN);
+				foreach($cas_admin as $login) {
+					if ($_SESSION['userid'] == $login){
+                        			$_SESSION['privilege']="Admin";
+                			}
+				}
 			break;
 		}
 
