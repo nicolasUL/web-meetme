@@ -198,11 +198,7 @@ network.
 * CAS SSO integration
 	Edit ./lib/defines and set the AUTH_TYPE to CAS.
 Set the CAS_SERVER to appopriate server address, and add
-admin login in th CAS_ADMIN. 
-
-        Edit ./lib/adLDAP and replace all instances of
-"yourdomain" and "yourserver" with the values for your
-network.
+admin login in the CAS_ADMIN. 
 
 
 * Usage
