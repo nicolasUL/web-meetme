@@ -150,7 +150,6 @@ exten => s,n,Wait(1)
 exten => s,n,Goto(STARTMEETME,1)
 exten => s,n,Hangup
 
-
 [ext-meetme]
 exten => STARTMEETME,1,MeetMe()
 exten => h,1,Set(CDR(bookId)=${MEETMEBOOKID})
@@ -195,6 +194,16 @@ chanege the browser session timeout.
 	Edit ./lib/adLDAP and replace all instances of
 "yourdomain" and "yourserver" with the values for your
 network.
+
+* CAS SSO integration
+	Edit ./lib/defines and set the AUTH_TYPE to CAS.
+Set the CAS_SERVER to appopriate server address, and add
+admin login in th CAS_ADMIN. 
+
+        Edit ./lib/adLDAP and replace all instances of
+"yourdomain" and "yourserver" with the values for your
+network.
+
 
 * Usage
 	If all of the steps have been followed, you should be
