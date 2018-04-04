@@ -67,11 +67,12 @@ to monitor and control active conferences.
 		!! res_odbc
 		!! app_meetme configured to use RealTime
 		!! cdr_adaptive_odbc is recommended for CDR functionality
+	-  Dahdi
 	-  Database with ODBC driver
 	-  PHP 4.3 or later
 		!! Reports depend on mod_gd and GD-2.0.28
 		!! or later
-		!! PEAR::DB (php-pear)
+		!! PEAR::MDB2 (php-pear)
 
 * Tweak meetme.conf
 	The default meetme.conf from Asterisk 1.6.2 or later has
@@ -135,6 +136,26 @@ command to setup the initial administrator account to logon to
 WMM:
 mysql < cbmysql/db-admin-user-create.txt
 
+* Configure /etc/asterisk/extensions.conf
+	For example in "default" context, add :
+exten => 8600,1,Noop(Running web-meetme)
+exten => 8600,n,Goto(meetme,s,1)
+
+	Add a new context meetme
+[meetme]
+include => ext-meetme
+
+exten => s,1,Answer
+exten => s,n,Wait(1)
+exten => s,n,Goto(STARTMEETME,1)
+exten => s,n,Hangup
+
+
+[ext-meetme]
+exten => STARTMEETME,1,MeetMe()
+exten => h,1,Set(CDR(bookId)=${MEETMEBOOKID})
+exten => h,n,Set(CDR(CIDnum)=${CALLERID(num)})
+exten => h,n,Set(CDR(CIDname)=${CALLERID(name)})
 
 * Install Web-MeetMe
 	Download the latest Web-MeetMe tgz file from
