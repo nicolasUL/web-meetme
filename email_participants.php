@@ -46,7 +46,7 @@
 	$msg_body .= _("Please contact")." $local_support "._("at")." $local_phone "._("for assistance").". \n\n";
 	$msg_body .= $message;
 	$recipient = "\"$ofn $ofn\" <$oem>";
-	mail($recipient, _("Administrator").": $confDesc", $msg_body,"From: $oem\r\n");
+	mail($recipient, _("Administrator").": $confdesc", $msg_body,"From: $oem\r\n");
 
 	$msg_body = str_replace($admpwline, "", $msg_body);
 	$query = "SELECT u.first_name, u.last_name, u.email, u.telephone FROM user u, participants p
@@ -56,7 +56,7 @@
        	{
 		extract($row);
 		$recipient = "\"$first_name $last_name\" <$email>";
-		mail($recipient, _("Conference Call").": $confDesc", $msg_body,"From: $oem\r\n");
+		mail($recipient, _("Conference Call").": $confdesc", $msg_body,"From: $oem\r\n");
 	}
 	echo "<p>"._("The following message has been sent to all invited participants")."</p>";
 	echo "<pre>$msg_body</pre>";

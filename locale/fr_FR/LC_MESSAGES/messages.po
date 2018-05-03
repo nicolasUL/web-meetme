@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Web-meetme-4.0.5 french translation\n"
-"POT-Creation-Date: 2018-01-26 14:05+0100\n"
+"POT-Creation-Date: 2018-05-02 15:47+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Nicolas TEISSIER <nicolas.teissier@univ-lorraine.fr>\n"
 "Language-Team: \n"
@@ -326,7 +326,7 @@ msgid "Conference #"
 msgstr "N° Conférence"
 
 #: conf_delete.php:23 conf_listen.php:24 conf_update.php:22
-#: email_participants.php:23 lib/email_body.php:39 lib/email_body.php:55
+#: email_participants.php:39 lib/email_body.php:39 lib/email_body.php:55
 #: meetme_control.php:266
 msgid "Conference Name"
 msgstr "Nom conférence"
@@ -339,7 +339,7 @@ msgstr "Début"
 msgid "Ends"
 msgstr "Fin"
 
-#: conf_delete.php:26 conf_update.php:25 email_participants.php:29
+#: conf_delete.php:26 conf_update.php:25 email_participants.php:45
 #: lib/email_body.php:45 lib/email_body.php:61
 msgid "Participants"
 msgstr "Participants"
@@ -398,59 +398,81 @@ msgstr "Aucune conférence trouvée"
 msgid "Total Conferences Scheduled and used on"
 msgstr "Conférences programmées et utilisées le"
 
-#: email_participants.php:21
+#: email_participants.php:37
 msgid "Admin Password"
 msgstr "Mot de passe Administrateur"
 
-#: email_participants.php:22
+#: email_participants.php:38
 msgid "has invited you to the following conference call"
 msgstr "vous a invité à suivre cette conférence"
 
-#: email_participants.php:24 meetme_control.php:284
+#: email_participants.php:40 meetme_control.php:284
 msgid "Conference Number"
 msgstr "Numéro Conférence"
 
-#: email_participants.php:26 lib/email_body.php:42 lib/email_body.php:58
+#: email_participants.php:42 lib/email_body.php:42 lib/email_body.php:58
 msgid "Conference Password"
 msgstr "Mot de passe Conférence"
 
-#: email_participants.php:27 lib/email_body.php:43 lib/email_body.php:59
+#: email_participants.php:43 lib/email_body.php:43 lib/email_body.php:59
 msgid "Start Date and Time"
 msgstr "Date et heure de début"
 
-#: email_participants.php:28 lib/email_body.php:44 lib/email_body.php:60
+#: email_participants.php:44 lib/email_body.php:44 lib/email_body.php:60
 msgid "End Date and Time"
 msgstr "Date et heure de fin"
 
-#: email_participants.php:31 lib/email_body.php:48 lib/email_body.php:64
+#: email_participants.php:47 lib/email_body.php:48 lib/email_body.php:64
 msgid "Dial In Info"
 msgstr "Procédure de connexion à la conférence"
 
-#: email_participants.php:32
+#: email_participants.php:48
 msgid "You will then prompted for the conference and pin numbers"
-msgstr "Les numéros de la conférence et le mot de passe vous seront demandés."
+msgstr ""
+"Lors de l'appel, les numéros de la conférence et le mot de passe vous seront "
+"demandés."
 
-#: email_participants.php:35
+#: email_participants.php:51
 msgid "This conference will be recorded. After the conference is complete"
 msgstr "Cette conférence va être enregistrée. Une fois la conférence terminée"
 
-#: email_participants.php:36
+#: email_participants.php:52
 msgid "you may listen to the recording by"
 msgstr "vous pourrez réécouter la conférence en allant à l'adresse"
 
-#: email_participants.php:37
+#: email_participants.php:53
 msgid "Click"
 msgstr " "
 
-#: email_participants.php:42
+#: email_participants.php:56 lib/email_body.php:49 lib/email_body.php:65
+msgid "The conference call can be accessed by calling"
+msgstr "La conférence peut être jointe en appelant le"
+
+#: email_participants.php:57
+msgid ""
+"Warning : for join conference, it's neccessary to use phone with vocal "
+"frequence"
+msgstr ""
+"ATTENTION : pour vous connecter à la conférence, il est obligatoire "
+"d'utiliser votre téléphone en fréquence vocale"
+
+#: email_participants.php:62
+msgid "In case of problem, please contact"
+msgstr "En cas de problème, veuillez contacter le"
+
+#: email_participants.php:62 lib/email_body.php:50 lib/email_body.php:66
+msgid "at"
+msgstr "au"
+
+#: email_participants.php:64
 msgid "Administrator"
-msgstr "Administrateur"
+msgstr "Administrateur de l'audio-conférence"
 
-#: email_participants.php:52
+#: email_participants.php:74
 msgid "Conference Call"
-msgstr "Conference Call"
+msgstr "Audio-conférence"
 
-#: email_participants.php:54
+#: email_participants.php:76
 msgid "The following message has been sent to all invited participants"
 msgstr "Ce message a été envoyé à tous les participants que vous avez invité :"
 
@@ -607,17 +629,9 @@ msgstr "Numéro de conférence"
 msgid "Recurrence Information"
 msgstr "Conférence récurrente"
 
-#: lib/email_body.php:49 lib/email_body.php:65
-msgid "The conference call can be accessed by calling"
-msgstr "La conférence peut être jointe en appelant le"
-
 #: lib/email_body.php:50 lib/email_body.php:66
 msgid "Please contact"
 msgstr "Veuillez contacter"
-
-#: lib/email_body.php:50 lib/email_body.php:66
-msgid "at"
-msgstr "au"
 
 #: lib/email_body.php:50 lib/email_body.php:66
 msgid "for assistance"
